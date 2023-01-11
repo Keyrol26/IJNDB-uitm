@@ -1,0 +1,67 @@
+.modal input[type=text] {
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+    /* border: 1px solid#9C27B0; */
+    border: 1px solid#1c8bcf;
+    border-radius: 4px;
+    width: 80%;
+}
+
+.close:focus {
+    outline: 1px dotted #fff !important;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #eff2f5;
+    opacity: 1;
+    border: 1px solid#1c8bcf;
+}
+
+.modal-body {
+    padding: 0rem !important;
+    font-family: 'Quicksand', sans-serif;
+    /* background-image: url('/public/multiple/img/mhd/mhd.jpg'); */
+    /* background-color: rgb(255, 255, 255); */
+    /* background-image: url('/public/multiple/img/mhd/mhd.jpg');
+    background-size: cover; */
+    /* filter: grayscale(100%);
+    opacity: 0.5; */
+}
+
+.modal-title {
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+}
+
+.modal-header {
+    font-family: 'Quicksand', sans-serif;
+    /* background: #9C27B0; */
+    background: #00578f;
+    color: #fff !important;
+}
+
+.modal-footer {
+    font-family: 'Quicksand', sans-serif;
+    background: #00578f;
+    color: #fff !important;
+}
+
+.fa-close {
+    color: #fff;
+}
+
+.heading {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 550 !important;
+}
+
+.subheadings {
+    font-size: 15px;
+    color: rgb(0, 0, 0)4d;
+}
+
+.fs-9 {
+    font-size: 9px;
+}
