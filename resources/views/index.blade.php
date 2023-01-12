@@ -1,52 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-@if ($message = Session::get('success'))
-<script>
-    $(document).ready(function(){
-        $("#myModal").modal('show');
-    });
-</script>
-<div class="modal fade" id="myModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Basic Modal</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <p>{{ $message }}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div><!-- End Basic Modal-->
-    @endif
-@if ($message = Session::get('Deleted'))
-<script>
-    $(document).ready(function(){
-        $("#deletemodal").modal('show');
-    });
-</script>
-<div class="modal fade"id="deletemodal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Basic Modal</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <p>{{ $message }}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div><!-- End Basic Modal-->
-    @endif
+
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>Dashboard</h1>
@@ -78,7 +33,7 @@
                                 <br>
                                 <div class="col-md-12 col-md-offset-1">
                                     <h2>
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#addnew" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Patient</button>
+                                        <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addnew" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Patient</button>
                                     </h2>
                                 </div>
                             </div><!-- End Search Bar -->
@@ -149,7 +104,6 @@
         <!-- Large Modal -->
         
 @include('modalpopup.addpatient')
-
 
     </main>
 @endsection

@@ -51,22 +51,24 @@ class PatientController extends Controller
     }
     public function profile($id)
     {
-        $profiles = Patient::with('allergy')
+        $profile = Patient::with('allergy')
             ->where('id', $id)
             ->first();
+        $hospital = Hospital::all()->pluck('hospital');
         //   dd($profiles);
 
-        return view('profile')->with('profile', $profiles);
+        return view('profile',compact('profile','hospital'));
     }
 
 
-    // public function update(Request $request, $id)
-    // {
-    //     $data = Patient::findOrFail($id);
-    //     $input = $request->all();
-    //     $data->update($input);
-    //     return redirect("/home");
-    // }
+    public function update(Request $request, $id)
+    {
+        $data = Patient::findOrFail($id);
+        $input = $request->all();
+        $data->update($input);
+
+        return redirect("/profile/$id");
+    }
 
     public function delete($id)
     {
@@ -84,10 +86,22 @@ class PatientController extends Controller
         //     // 'email' => 'required',
         //     // 'address' => 'required',
         // ]);
-        if ($request->hospital == 0)
+
+        $currentmrn = Patient::select("mrn")->max('mrn');
+        $mrn = str_pad($currentmrn + 1, 6, '0', STR_PAD_LEFT);
+
+        if ($request->hospital == 0) {
             $hospital = "IJN";
-        else
-            $hospital = "IJNPH";
+            $mrnp = $mrn;
+        } else ($request->hospital == 1);
+        $hospital = "IJNPH";
+        $mrnp = $mrn . 'P';
+
+        // if ($request->hospital == 0)
+        //     $mrnp = $mrn;
+        // else
+        //     // $mrnp = ("concat($mrn,'P')");
+        //     $mrnp = $mrn.'P';
 
         if ($request->gender == 1)
             $sex = "Male";
@@ -95,15 +109,17 @@ class PatientController extends Controller
             $sex = "Female";
         // dd($request->gender,);
         $data = new Patient([
+            "mrn" => $mrn,
+            "mrnp" => $mrnp,
             "name" => $request->name,
             "hospital" => $hospital,
             "sex" => $sex,
-            // "dob" => $request->dob,
-            // "newic" => $request->newic,
-            // "address" => $request->address,
-            // "city" => $request->city,
-            // "postcode" => $request->postcode,
-            // "medrecordlocation" => $request->medrecordlocation,
+            "dob" => $request->dob,
+            "newic" => $request->newic,
+            "address" => $request->address,
+            "city" => $request->city,
+            "postcode" => $request->postcode,
+            "medrecordlocation" => $request->medrecordlocation,
 
         ]);
         $data->save();

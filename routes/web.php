@@ -28,15 +28,15 @@ use App\Http\Controllers\LabResult;
 
 //Patient
 Route::get('/home', [PatientController::class, 'index'])->name('home');
-// Route::post('/home', [PatientController::class, 'store'])->name('store');
 Route::post('/store', 'PatientController@store');
 //profile
 Route::get('/profile/{id}', [PatientController::class, 'profile'])->name('profile');
-//Route::post('/home', [PatientController::class, 'store']);
 Route::delete('/delete/{id}', ['as' => 'item.delete', 'uses' => 'PatientController@delete']);
-// Route::delete('/delete/{id}', [PatientController::class, 'delete']);
-//Route::get('profile/edit/{id}', [PatientController::class, 'edit']);
-//Route::put('/update/{id}', [PatientController::class, 'update']);
+Route::put('/update/{id}', [PatientController::class, 'update']);
+// Route::put('/update/{id}', ['as' => 'profile.update', 'uses' => 'PatientController@update']);
+// Route::post('/update/{id}', 'PatientController@update');
+// Route::get('profile/edit/{id}', [PatientController::class, 'edit']);
+// Route::put('/update/{id}', [PatientController::class, 'update'])->name('update');
 //Route::get('/create', function () {
 //    return view('index');
 //});

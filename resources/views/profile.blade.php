@@ -8,7 +8,8 @@
                  <ol class="breadcrumb">
                      <li class="breadcrumb-item">Home</li>
                      <li class="breadcrumb-item"><a href="/home">Patient List</a></li>
-                     <li class="breadcrumb-item active"><a href onClick="window.location.reload()">Patient Information</a></li>
+                     <li class="breadcrumb-item active"><a href onClick="window.location.reload()">Patient Information</a>
+                     </li>
                  </ol>
              </nav>
          </div><!-- End Page Title -->
@@ -48,211 +49,286 @@
                                          </table>
                                      </div>
                                  </div>
-                                 <div class="card" >
-                                     <div class="card-body " style="position:relative; left:100px;">
-                                         <h5 class="card-title">Patient Details</h5>
-                                         <div class="row mb-2">
-                                             <label for="name" class="col-sm-2 col-form-label">Name</label>
-                                             <div class="col-sm-8 ">
-                                                 <input type="text"value="{{ $profile->name }}" class="form-control"
-                                                     disabled>
+                                 <div class="card">
+                                     <div class="card-body pt-3">
+                                         <!-- Bordered Tabs -->
+                                         <ul class="nav nav-tabs nav-tabs-bordered">
+                                             <li class="nav-item">
+                                                 <button class="nav-link active" data-bs-toggle="tab"
+                                                     data-bs-target="#profile-overview">Overview</button>
+                                             </li>
+                                             <li class="nav-item">
+                                                 <button class="nav-link" data-bs-toggle="tab"
+                                                     data-bs-target="#profile-edit">Edit Profile</button>
+                                             </li>
+                                         </ul>
+                                         <div class="tab-content pt-2">
+                                             <div class="tab-pane fade  profile-overview" id="profile-overview">
+                                                 <div class="card-body " style="position:relative; left:100px;">
+                                                     <h5 class="card-title">Patient Details</h5>
+                                                     @include('profile.details')
+                                                 </div>
                                              </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="sex" class="col-sm-2 col-form-label">Sex</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->sex }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                             <label for="hospital" class="col-sm-2 col-form-label">Hospital</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->hospital }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="mrn" class="col-sm-2 col-form-label">MRN</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text"value="{{ $profile->mrn }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                             <label for="mrnp" class="col-sm-2 col-form-label">MRNP</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->mrnp }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="dob" class="col-sm-2 col-form-label">DOB</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->dob }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                             <label for="idtype" class="col-sm-2 col-form-label">MRN Type</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->mrntype }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="newic" class="col-sm-2 col-form-label">New IC</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->newic }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                             <label for="oldic" class="col-sm-2 col-form-label">Old
-                                                 IC</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->oldic }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="pdpa" class="col-sm-2 col-form-label">PDPA</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->pdpa }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                             <label for="pchc" class="col-sm-2 col-form-label">PCHC</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->pchc }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="passportno" class="col-sm-2 col-form-label">Passport No</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->passportno }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                             <label for="maritalstat" class="col-sm-2 col-form-label">Marital
-                                                 Status</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->maritalstat }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="race" class="col-sm-2 col-form-label">Race</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->race }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                             <label for="ctzenship" class="col-sm-2 col-form-label">Citizenship</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->ctzenship }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="residential" class="col-sm-2 col-form-label">Residential
-                                                 Status</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->residential }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                             <label for="religion" class="col-sm-2 col-form-label">Religion</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->religion }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="occupation" class="col-sm-2 col-form-label">Occupation</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->occupation }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                             <label for="bluelistflag" class="col-sm-2 col-form-label">Blue List
-                                                 Flag</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->bluelistflag }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="homeno" class="col-sm-2 col-form-label">Home Number </label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->homeno }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                             <label for="phoneno" class="col-sm-2 col-form-label">Mobile
-                                                 Number</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->phoneno }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="email" class="col-sm-2 col-form-label">E-mail</label>
-                                             <div class="col-sm-3">
-                                                 <input type="email" value="{{ $profile->email }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                             <label for="fax" class="col-sm-2  col-form-label">Fax</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->fax }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                         </div>
 
-                                         <div class="row mb-2">
-                                             <label for="address" class="col-sm-2 col-form-label">Address</label>
-                                             <div class="col-sm-8">
-                                                 <input type="text" class="form-control"
-                                                     value="{{ $profile->address }}" disabled>
+                                             <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+                                                 <!-- Profile Edit Form -->
+                                                 <div class="card-body " style="position:relative; left:100px;">
+
+                                                     <h5 class="card-title">Patient Details</h5>
+                                                     <form action="/update/{{ $profile->id }}" method="post"
+                                                         enctype="multipart/form-data">
+                                                         @csrf
+                                                         @method('put')
+
+                                                         <div class="row mb-2">
+                                                             <label for="name"
+                                                                 class="col-sm-2 col-form-label">Name</label>
+                                                             <div class="col-sm-8 ">
+                                                                 <input type="text"value="{{ $profile->name }}"
+                                                                     class="form-control" name="name" id="name">
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="sex"
+                                                                 class="col-sm-2 col-form-label">Sex</label>
+                                                             <div class="col-sm-3">
+                                                                 {!! Form::select('sex', ['Male' => 'Male', 'Female' => 'Female'], ['value' => $profile->sex], ['class' => 'form-select', 'required']) !!}
+                                                                 {{-- <input type="text" value="{{ $profile->sex }}"
+                                                                     {{-- class="form-control" name="sex" id="sex"> --}}
+                                                                 {{-- <select  class="form-select" value="{{ $profile->sex }}">
+                                                                     <option name="gender" id='gender'>Female</option>
+                                                                     <option name="gender" id='gender'>Male</option> --}}
+                                                                 {{-- </select> --}}
+                                                             </div>
+                                                             <label for="hospital"
+                                                                 class="col-sm-2 col-form-label">Hospital</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->hospital }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="mrn"
+                                                                 class="col-sm-2 col-form-label">MRN</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text"value="{{ $profile->mrn }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                             <label for="mrnp"
+                                                                 class="col-sm-2 col-form-label">MRNP</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->mrnp }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="dob"
+                                                                 class="col-sm-2 col-form-label">DOB</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="date" value="{{ $profile->dob }}"
+                                                                     class="form-control" id='dob' name="dob">
+                                                             </div>
+                                                             <label for="idtype" class="col-sm-2 col-form-label">MRN
+                                                                 Type</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->mrntype }}"
+                                                                     class="form-control" id='mrntype'>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="newic" class="col-sm-2 col-form-label">New
+                                                                 IC</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->newic }}"
+                                                                     class="form-control" id='newic' name="newic">
+                                                             </div>
+                                                             <label for="oldic" class="col-sm-2 col-form-label">Old
+                                                                 IC</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->oldic }}"
+                                                                     class="form-control" id='oldic' name="oldic">
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="pdpa"
+                                                                 class="col-sm-2 col-form-label">PDPA</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->pdpa }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                             <label for="pchc"
+                                                                 class="col-sm-2 col-form-label">PCHC</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->pchc }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="passportno"
+                                                                 class="col-sm-2 col-form-label">Passport
+                                                                 No</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->passportno }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                             <label for="maritalstat"
+                                                                 class="col-sm-2 col-form-label">Marital
+                                                                 Status</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text"
+                                                                     value="{{ $profile->maritalstat }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="race"
+                                                                 class="col-sm-2 col-form-label">Race</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->race }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                             <label for="ctzenship"
+                                                                 class="col-sm-2 col-form-label">Citizenship</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->ctzenship }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="residential"
+                                                                 class="col-sm-2 col-form-label">Residential
+                                                                 Status</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text"
+                                                                     value="{{ $profile->residential }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                             <label for="religion"
+                                                                 class="col-sm-2 col-form-label">Religion</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->religion }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="occupation"
+                                                                 class="col-sm-2 col-form-label">Occupation</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->occupation }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                             <label for="bluelistflag"
+                                                                 class="col-sm-2 col-form-label">Blue
+                                                                 List
+                                                                 Flag</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text"
+                                                                     value="{{ $profile->bluelistflag }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="homeno" class="col-sm-2 col-form-label">Home
+                                                                 Number
+                                                             </label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->homeno }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                             <label for="phoneno" class="col-sm-2 col-form-label">Mobile
+                                                                 Number</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->phoneno }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="email"
+                                                                 class="col-sm-2 col-form-label">E-mail</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="email" value="{{ $profile->email }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                             <label for="fax"
+                                                                 class="col-sm-2  col-form-label">Fax</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->fax }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+
+                                                         <div class="row mb-2">
+                                                             <label for="address"
+                                                                 class="col-sm-2 col-form-label">Address</label>
+                                                             <div class="col-sm-8">
+                                                                 <input type="text" class="form-control"
+                                                                     value="{{ $profile->address }}" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="postcode"
+                                                                 class="col-sm-2 col-form-label">Postcode</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->postcode }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                             <label for="city"
+                                                                 class="col-sm-2 col-form-label">City</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->city }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="state"
+                                                                 class="col-sm-2 col-form-label">State</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" value="{{ $profile->state }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                             <label for="country"
+                                                                 class="col-sm-2 col-form-label">Country</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" name="country" id="country"
+                                                                     value="{{ $profile->country }}" class="form-control"
+                                                                     disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="state" class="col-sm-3 col-form-label">Medical
+                                                                 Record
+                                                                 Location</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" name="medrecordlocation"
+                                                                     id="medrecordlocation"value="{{ $profile->medrecordlocation }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <div class="row mb-2">
+                                                             <label for="language" class="col-sm-3 col-form-label">Pref.
+                                                                 Language</label>
+                                                             <div class="col-sm-3">
+                                                                 <input type="text" name="language"
+                                                                     id="language"value="{{ $profile->language }}"
+                                                                     class="form-control" disabled>
+                                                             </div>
+                                                         </div>
+                                                         <br>
+                                                         <div class="text-center">
+                                                             <button type="submit"
+                                                                 class="btn btn-danger mt-3 ">Submit</button>
+                                                         </div>
+
+                                                 </div>
+
                                              </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="postcode" class="col-sm-2 col-form-label">Postcode</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->postcode }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                             <label for="city" class="col-sm-2 col-form-label">City</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->city }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="state" class="col-sm-2 col-form-label">State</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" value="{{ $profile->state }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                             <label for="country" class="col-sm-2 col-form-label">Country</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" name="country" id="country"
-                                                     value="{{ $profile->country }}" class="form-control" disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="state" class="col-sm-3 col-form-label">Medical Record
-                                                 Location</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" name="medrecordlocation"
-                                                     id="medrecordlocation"value="{{ $profile->medrecordlocation }}"
-                                                     class="form-control" disabled>
-                                             </div>
-                                         </div>
-                                         <div class="row mb-2">
-                                             <label for="language" class="col-sm-3 col-form-label">Pref. Language</label>
-                                             <div class="col-sm-3">
-                                                 <input type="text" name="language"
-                                                     id="language"value="{{ $profile->language }}" class="form-control"
-                                                     disabled>
-                                             </div>
-                                         </div>
-                                         <br>
+                                         </div><!-- End Bordered Tabs -->
                                      </div>
                                  </div>
+
                              </div>
                          </div>
-
                      </div>
-                 </div>
-             </div>
          </section>
      </main><!-- End #main -->
  @endsection

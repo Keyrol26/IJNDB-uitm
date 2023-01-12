@@ -1,6 +1,7 @@
 <!-- Add Modal -->
-<div class="modal fade" id="addnew" tabindex="-1" aria-labelledby="addnewModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="addnew" tabindex="-1" aria-labelledby="addnewModalLabel" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addnewModalLabel">Add New Patient</h5>
@@ -14,11 +15,40 @@
                 </div>
                 <div class="mb-3">
                     {!! Form::label('hospital', 'Hospital') !!}
-                    {!! Form::select('hospital', $hospital,null, ['class' => 'form-select', 'required']) !!}
+                    {!! Form::select('hospital', $hospital, null, ['class' => 'form-select', 'required']) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::label('gender', 'Gender') !!}
-                    {!! Form::select('gender', [ 1 => 'Male', 2 => 'Female' ],null, ['class' => 'form-select', 'required']) !!}
+                    {!! Form::select('gender', [1 => 'Male', 2 => 'Female'], null, ['class' => 'form-select', 'required']) !!}
+                </div>
+                <div class="mb-3">
+                    {!! Form::label('dob', 'Date OF Birth') !!}
+                    {!! Form::date('dob', '', ['class' => 'form-control', 'required']) !!}
+                </div>
+                <div class="mb-3">
+                    {!! Form::label('newic', 'New IC Number') !!}
+                    {!! Form::text('newic', '', ['class' => 'form-control', 'placeholder' => 'IC Number', 'required']) !!}
+                </div>
+                <div class="mb-3">
+                    {!! Form::label('address', 'Address') !!}
+                    {!! Form::textarea('address', '', [
+                        'class' => 'form-control',
+                        'placeholder' => 'Address',
+                        'style' => 'height: 100px',
+                        'required',
+                    ]) !!}
+                </div>
+                <div class="mb-3">
+                    {!! Form::label('city', 'City') !!}
+                    {!! Form::text('city', '', ['class' => 'form-control', 'placeholder' => 'City', 'required']) !!}
+                </div>
+                <div class="mb-3">
+                    {!! Form::label('postcode', 'Postcode') !!}
+                    {!! Form::text('postcode', '', ['class' => 'form-control', 'placeholder' => 'Postcode', 'required']) !!}
+                </div>
+                <div class="mb-3">
+                    {!! Form::label('medrecordlocation', 'Medical Record Location') !!}
+                    {!! Form::text('medrecordlocation', '', ['class' => 'form-control', 'placeholder' => 'Medical Record Location', 'required']) !!}
                 </div>
             </div>
             <div class="modal-footer">
