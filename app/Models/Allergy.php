@@ -9,8 +9,8 @@ class Allergy extends Model
 {
     use HasFactory;
     protected $table = 'allergys';
-    protected $primaryKey = 'id';
     protected $dateFormat = 'Y-m-d H:i';
+    protected $guarded = [];
 
     public function patient()
     {

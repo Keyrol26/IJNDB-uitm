@@ -33,13 +33,9 @@ Route::post('/store', 'PatientController@store');
 Route::get('/profile/{id}', [PatientController::class, 'profile'])->name('profile');
 Route::delete('/delete/{id}', ['as' => 'item.delete', 'uses' => 'PatientController@delete']);
 Route::put('/update/{id}', [PatientController::class, 'update']);
-// Route::put('/update/{id}', ['as' => 'profile.update', 'uses' => 'PatientController@update']);
-// Route::post('/update/{id}', 'PatientController@update');
-// Route::get('profile/edit/{id}', [PatientController::class, 'edit']);
-// Route::put('/update/{id}', [PatientController::class, 'update'])->name('update');
-//Route::get('/create', function () {
-//    return view('index');
-//});
+
+//allergy
+Route::post('/allergystore', 'PatientController@allergystore');
 
 //download
 Route::get('/exportPatientExcel', [PatientController::class, 'exportPatientExcel']);

@@ -36,7 +36,7 @@
 
                             <br>
                             {{-- <p>Total MHD : {{ $count }}</p> --}}
-                            <table id="empTable"class="table display table-hover">
+                            <table id="empTable"class="table display table-hover" width="100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">@sortablelink('patient.mrn', 'MRN')</th>
@@ -119,14 +119,14 @@
                 'responsive': true,
                 "ordering": false,
                 "paging": false,
-                "bProcessing": true,
-                "sAutoWidth": false,
-                "bDestroy": true,
-                "sPaginationType": "bootstrap", // full_numbers
-                "iDisplayStart ": 10,
-                "iDisplayLength": 10,
-                "bPaginate": false, //hide pagination
-                "bFilter": false, //hide Search bar
+                // "bProcessing": true,
+                // "sAutoWidth": false,
+                // "bDestroy": true,
+                // "sPaginationType": "bootstrap", // full_numbers
+                // "iDisplayStart ": 10,
+                // "iDisplayLength": 10,
+                // "bPaginate": false, //hide pagination
+                "bFilter": false, //hide Search bar.
                 "bInfo": false, // hide showing entries
                 // 'sort' : false
             });

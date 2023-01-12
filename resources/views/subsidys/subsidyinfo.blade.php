@@ -24,7 +24,7 @@
                     <div class="card recent-sales overflow-auto">
                         <div class="card-body">
                             <h5 class="card-title">Subsidy Listing </h5>
-                            <table id='subtable' class="table display table-borderless">
+                            <table id='subtable' class="table display table-borderless"width="100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">@sortablelink('patient.mrn','MRN')</th>

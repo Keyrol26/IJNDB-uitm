@@ -37,7 +37,7 @@
                                 </form>
                             </div><!-- End Search Bar -->
                             <br>
-                            <table id="OtTable" class="table display table-hover">
+                            <table id="OtTable" class="table display table-hover" width="100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">@sortablelink('patient.mrn', 'MRN')</th>

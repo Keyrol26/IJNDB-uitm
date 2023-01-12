@@ -42,7 +42,7 @@
                             <br>
                             {{-- <button id="btn-show-all-children" type="button">Expand All</button>
                             <button id="btn-hide-all-children" type="button">Collapse All</button> --}}
-                            <table id="icltable" class="table display table-hover" cellspacing="0">
+                            <table id="icltable" class="table display table-hover" width="100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">@sortablelink('patient.mrn', 'MRN')</th>

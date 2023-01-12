@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use App\Models\Hospital;
+use App\Models\Allergy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Input;
 use Illuminate\Support\Facades\DB;
@@ -55,9 +56,10 @@ class PatientController extends Controller
             ->where('id', $id)
             ->first();
         $hospital = Hospital::all()->pluck('hospital');
-        //   dd($profiles);
+        // $data = Allergy::findOrFail($id);
+        //   dd($data);
 
-        return view('profile',compact('profile','hospital'));
+        return view('profile', compact('profile', 'hospital'));
     }
 
 
@@ -80,13 +82,6 @@ class PatientController extends Controller
 
     public function store(Request $request)
     {
-
-        // $request->validate([
-        //     'name' => 'required',
-        //     // 'email' => 'required',
-        //     // 'address' => 'required',
-        // ]);
-
         $currentmrn = Patient::select("mrn")->max('mrn');
         $mrn = str_pad($currentmrn + 1, 6, '0', STR_PAD_LEFT);
 
@@ -96,12 +91,6 @@ class PatientController extends Controller
         } else ($request->hospital == 1);
         $hospital = "IJNPH";
         $mrnp = $mrn . 'P';
-
-        // if ($request->hospital == 0)
-        //     $mrnp = $mrn;
-        // else
-        //     // $mrnp = ("concat($mrn,'P')");
-        //     $mrnp = $mrn.'P';
 
         if ($request->gender == 1)
             $sex = "Male";
@@ -123,8 +112,28 @@ class PatientController extends Controller
 
         ]);
         $data->save();
-        // Patient::create($request->save());
-        // return redirect('home');
         return back();
+    }
+
+    public function allergystore(Request $request)
+    {
+        // $data = Allergy::Create($id);
+        $id = $request->patient_id;
+        $check = Allergy::FindorFail($id)->count();
+        dd($id);
+        if ($check == 0 or $check == 'null')
+            $allergy_id = 1;
+        else
+            $allergy_id = $check + 1;
+
+        $data = new Allergy([
+            "patient_id" => $id,
+            "id" => $allergy_id,
+            'update_date' => date('Y-mm-dd'),
+            "allergen" => $request->allergen,
+            "allergen_text" => $request->text,
+        ]);
+        $data->save();
+        return redirect("/profile/$id");
     }
 }

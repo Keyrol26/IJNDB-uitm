@@ -39,7 +39,7 @@
                                 </form>
                             </div><!-- End Search Bar -->
                             <br>
-                            <table id='subtable' class="table display table-borderless">
+                            <table id='subtable' class="table display table-borderless"width="100%">
                                 <thead>
                                     <tr>
                                         
