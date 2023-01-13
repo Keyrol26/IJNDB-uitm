@@ -15,6 +15,7 @@ class Episode extends Model
     public $incrementing = false;
     protected $dateFormat = 'Y-m-d H:i';
     public $sortable = ['episode_no'];
+    protected $guarded = [];
 
     public function patient()
     {

@@ -14,6 +14,7 @@
                         {!! Form::label('allergen', 'Allergen Name') !!}
                         {!! Form::text('allergen', '', ['class' => 'form-control', 'placeholder' => 'Allergen', 'required']) !!}
                         {!! Form::text('patient_id',$profile->id, ['class' => 'form-control', 'placeholder' => 'Allergen', 'hidden']) !!}
+                        {!! Form::text('allergy_id',$count + 1, ['class' => 'form-control', 'placeholder' => 'allergy_id', 'hidden']) !!}
                     </div>
                     <div class="mb-3">
                         {!! Form::label('text', 'Allergen Text') !!}

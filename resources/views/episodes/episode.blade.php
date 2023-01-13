@@ -21,12 +21,20 @@
                     <div class="card recent-sales overflow-auto">
                         <div class="card-body">
                             <h5 class="card-title">Episode List </h5>
+                            <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addepisode"
+                                class="btn btn-primary pull-right" style="float:right"><i class="fa fa-plus"></i>
+                                Episode</button>
+                            @include('modalpopup.Episode.add')
+                            <br>
+                            <br>
+                            <br>
                             {{-- <p>Last Data Extracted on {{ $update->updatetime }}</p> --}}
                             {{-- <h2>{{ $episode->name }}</h2> --}}
                             {{-- <h2>{{ $episode->mrn }}</h2> --}}
                             <table class="table table-hover datatable">
                                 <thead>
                                     <tr>
+                                        <th scope="col">Config</th>
                                         <th scope="col">Episode No</th>
                                         <th scope="col">Episode Status</th>
                                         <th scope="col">Admission Date</th>
@@ -48,6 +56,19 @@
                                 <tbody>
                                     @foreach ($episodes as $item)
                                         <tr>
+                                            <td>
+                                                @if ($item->patient_id > 20)
+                                                    <div class="d-grid gap-2">
+                                                        <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
+                                                            data-bs-toggle="modal" class="btn btn-danger btn-sm"><i
+                                                                class='fa fa-trash'></i> Delete</a>
+                                                        <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
+                                                            data-bs-toggle="modal" class="btn btn-primary btn-sm"><i
+                                                                class='fa fa-edit'></i> Update</a>
+                                                    </div>
+                                                    @include('modalpopup.Episode.episodeaction')
+                                                @endif
+                                            </td>
                                             <td>{{ $item->episode_no }}</td>
                                             <td>{{ $item->episode_status }}</td>
                                             <td>

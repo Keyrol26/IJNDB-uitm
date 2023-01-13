@@ -36,17 +36,19 @@ Route::put('/update/{id}', [PatientController::class, 'update']);
 
 //allergy
 Route::post('/allergystore', 'PatientController@allergystore');
-
+Route::delete('/delete/{patientid}/{id}', ['as' => 'allergy.delete', 'uses' => 'PatientController@allergydelete']);
+Route::post('/update/{patientid}/{id}', ['as' => 'allergy.update', 'uses' => 'PatientController@allergyupdate']);
 //download
-Route::get('/exportPatientExcel', [PatientController::class, 'exportPatientExcel']);
-Route::get('/exportPatientCsv', [PatientController::class, 'exportPatientCsv']);
-Route::get('/patient/pdf', [PatientController::class, 'exportPatientPDF']);
+// Route::get('/exportPatientExcel', [PatientController::class, 'exportPatientExcel']);
+// Route::get('/exportPatientCsv', [PatientController::class, 'exportPatientCsv']);
+// Route::get('/patient/pdf', [PatientController::class, 'exportPatientPDF']);
 
 
 //Episode
+Route::post('/episodestore', 'PatientController@episodestore');
 Route::get('/episode/{id}', [EpisodeController::class, 'showEpisode']);
-//Route::post('/episode', [EpisodeController::class, 'storeepisode']);
-//Route::delete('/delete/{id}', [EpisodeController::class, 'destroyepisode']);
+Route::post('/Episodeupdate/{patientid}/{id}', ['as' => 'episode.update', 'uses' => 'EpisodeController@episodeupdate']);
+Route::delete('/EpisodeDelete/{patientid}/{id}', ['as' => 'episode.delete', 'uses' => 'EpisodeController@destroyepisode']);
 
 //episodeAppointment
 Route::get('/epsappointment/{id}', [EpisodeController::class, 'epsappointment'])->name('epsappointment');

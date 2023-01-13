@@ -1,0 +1,28 @@
+CRUD
+
+Patient Listing
+-Add Patient 
+-Delete Patient
+
+Patient Profile
+-Update Patient
+-Add Patient Allergy
+-Delete Patient Allergy
+-Update Patient Allergy
+-Add Patient Episode
+
+
+Episode Page
+-Add
+-Delete
+-Update
+
+Allergy
+-Add
+-Delete
+-Update
+
+Patient
+-Add
+-Delete
+-Update

@@ -11,6 +11,7 @@ class Allergy extends Model
     protected $table = 'allergys';
     protected $dateFormat = 'Y-m-d H:i';
     protected $guarded = [];
+    public $timestamps = false;
 
     public function patient()
     {

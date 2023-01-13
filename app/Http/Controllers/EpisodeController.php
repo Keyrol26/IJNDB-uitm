@@ -68,41 +68,56 @@ class EpisodeController extends Controller
         return view('episodes/epsmedication', compact('data'));
     }
 
-
-
-
-
-
-
-    public function storeepisode(Request $request)
+    public function destroyepisode(Request $request)
     {
-        $episode = new Episode([
-
-
-            "status" => $request->status,
-            "admissiondate" => $request->admissiondate,
-            "admissiontime" => $request->admissiontime,
-            "dischargedate" => $request->dischargedate,
-            "dischargetime" => $request->dischargetime,
-            "department" => $request->department,
-            "doctor" => $request->doctor,
-            "ward" => $request->ward,
-            "bed" => $request->bed,
-            "subtype" => $request->subtype,
-            "visittype" => $request->visittype,
-            "discipline" => $request->discipline,
-            "admissionctgry" => $request->admissionctgry,
-            "gltype" => $request->gltype,
-        ]);
-        $episode->save();
-        //return redirect("/home");
-        return back();
+        $id = $request->id;
+        $patientid = $request->patientid;
+        $data = Episode::where('patient_id', $patientid)
+            ->where('id', $id);
+        // dd($data);
+        $data->delete();
+        // return redirect('home');
+        return redirect("/episode/$patientid");
     }
 
-    public function destroyepisode($id)
+
+    public function episodeupdate(Request $request)
     {
-        $datas = Episode::findOrFail($id);
-        $datas->delete();
-        return back();
+        $id = $request->id;
+        $patientid = $request->patientid;
+        $data = Episode::where('patient_id', $patientid)
+            ->where('id', $id);
+        $input = request()->except(['_token']);
+        $data->update($input);
+        return redirect("/episode/$patientid");
     }
+
+
+
+
+    // public function storeepisode(Request $request)
+    // {
+    //     $episode = new Episode([
+
+
+    //         "status" => $request->status,
+    //         "admissiondate" => $request->admissiondate,
+    //         "admissiontime" => $request->admissiontime,
+    //         "dischargedate" => $request->dischargedate,
+    //         "dischargetime" => $request->dischargetime,
+    //         "department" => $request->department,
+    //         "doctor" => $request->doctor,
+    //         "ward" => $request->ward,
+    //         "bed" => $request->bed,
+    //         "subtype" => $request->subtype,
+    //         "visittype" => $request->visittype,
+    //         "discipline" => $request->discipline,
+    //         "admissionctgry" => $request->admissionctgry,
+    //         "gltype" => $request->gltype,
+    //     ]);
+    //     $episode->save();
+    //     //return redirect("/home");
+    //     return back();
+    // }
+
 }

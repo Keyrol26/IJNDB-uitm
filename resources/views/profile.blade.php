@@ -22,32 +22,61 @@
                          <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                              <h2>{{ $profile->name }}</h2>
                              <h2>{{ $profile->mrn }}</h2>
+                             <br>
+                             <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addepisodeprofile"
+                                 class="btn btn-primary pull-right" style="align-items:center"><i class="fa fa-plus"></i>
+                                 Episode</button>
+                                 @include('modalpopup.episodeadd')
+
                          </div>
+                         {{-- <div class="card-body pt-2 " style="align-content: center">
+
+                             <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addnew"
+                                 class="btn btn-primary pull-right" style="align-items:center"><i class="fa fa-plus"></i>
+                                 Episode</button>
+                             <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addnew"
+                                 class="btn btn-primary pull-right" style="align-items:center"><i class="fa fa-plus"></i>
+                                 Episode</button>
+                         </div> --}}
                          <div class="card-body pt-3">
                              <div class="tab-content pt-1">
                                  <!-- Info -->
                                  <div class="card" style="border-color: #6776F4; border-style: dashed;">
                                      <div class="card-body">
-                                         <h5 class="card-title">Allergy</h5>
+                                         <h5 class="card-title" style="float: left">Allergy</h5>
                                          <button type="button" id="click-me"data-bs-toggle="modal"
-                                             data-bs-target="#addnew" class="btn btn-primary pull-right" style="float-right"><i
-                                                 class="fa fa-plus" ></i> Allergy</button>
-                                                 @include('modalpopup.allergy_add')
+                                             data-bs-target="#addnew" class="btn btn-primary pull-right"
+                                             style="float:right"><i class="fa fa-plus"></i> Allergy</button>
+                                         @include('modalpopup.allergy_add')
                                          <br><br>
                                          <table class="table table-striped datatable">
                                              <thead>
                                                  <tr>
-                                                     <th scope="col">Date</th>
-                                                     <th scope="col">Allergen</th>
-                                                     <th scope="col">Note</th>
+                                                     <th style="min-width:20%">Actions</th>
+                                                     <th style="min-width:20%">Date</th>
+                                                     <th style="min-width:30%">Allergen</th>
+                                                     <th style="min-width:30%">Note</th>
+
                                                  </tr>
                                              </thead>
                                              <tbody>
                                                  @foreach ($profile->allergy as $item)
                                                      <tr>
+                                                         <td>
+                                                            @if($item->patient_id > 20)
+                                                            <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
+                                                                 data-bs-toggle="modal" class="btn btn-danger btn-sm"><i
+                                                                     class='fa fa-trash'></i> Delete</a>
+                                                             <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
+                                                                 data-bs-toggle="modal" class="btn btn-primary btn-sm"><i
+                                                                     class='fa fa-edit'></i> Update</a>
+                                                             @include('modalpopup.allergyaction')
+                                                             @endif
+                                                         </td>
                                                          <td>{{ $item->update_date }}</td>
                                                          <td>{{ $item->allergen }}</td>
                                                          <td>{{ $item->allergen_text }}</td>
+
                                                      </tr>
                                                  @endforeach
                                              </tbody>
@@ -103,18 +132,20 @@
                                                                      ['value' => $profile->sex],
                                                                      ['class' => 'form-select', 'required'],
                                                                  ) !!}
-                                                                 {{-- <input type="text" value="{{ $profile->sex }}"
-                                                                     {{-- class="form-control" name="sex" id="sex"> --}}
-                                                                 {{-- <select  class="form-select" value="{{ $profile->sex }}">
-                                                                     <option name="gender" id='gender'>Female</option>
-                                                                     <option name="gender" id='gender'>Male</option> --}}
-                                                                 {{-- </select> --}}
                                                              </div>
                                                              <label for="hospital"
                                                                  class="col-sm-2 col-form-label">Hospital</label>
-                                                             <div class="col-sm-3">
+                                                             {{-- <div class="col-sm-3">
                                                                  <input type="text" value="{{ $profile->hospital }}"
                                                                      class="form-control" disabled>
+                                                             </div> --}}
+                                                             <div class="col-sm-3">
+                                                                 {!! Form::select(
+                                                                     'hospital',
+                                                                     ['IJN' => 'IJN', 'IJNPH' => 'IJNPH'],
+                                                                     ['value' => $profile->hospital],
+                                                                     ['class' => 'form-select', 'disabled'],
+                                                                 ) !!}
                                                              </div>
                                                          </div>
                                                          <div class="row mb-2">
@@ -341,13 +372,13 @@
                                                              </div>
                                                          </div>
                                                          <br>
+                                                         @if($profile->patient_id > 20)
                                                          <div class="text-center">
                                                              <button type="submit"
                                                                  class="btn btn-danger mt-3 ">Submit</button>
                                                          </div>
-
+                                                         @endif
                                                  </div>
-
                                              </div>
                                          </div><!-- End Bordered Tabs -->
                                      </div>
@@ -357,6 +388,6 @@
                          </div>
                      </div>
          </section>
-         
+
      </main><!-- End #main -->
  @endsection

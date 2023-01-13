@@ -87,7 +87,7 @@
                                                 <button type="button" class="btn btn-primary btn-sm" disabled>Episode</button>
                                                 @endif
                                                 @if ($item->id > 20)
-                                                <a href="#delete{{$item->id}}" data-bs-toggle="modal" class="btn btn-danger"><i class='fa fa-trash'></i> Delete</a>
+                                                <a href="#delete{{$item->id}}" data-bs-toggle="modal" class="btn btn-danger btn-sm"><i class='fa fa-trash'></i> Delete</a>
                                                 @include('modalpopup.action')
                                                 @endif
                                             </td>
