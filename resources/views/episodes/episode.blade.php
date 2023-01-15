@@ -63,8 +63,11 @@
                                                             data-bs-toggle="modal" class="btn btn-danger btn-sm"><i
                                                                 class='fa fa-trash'></i> Delete</a>
                                                         <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
-                                                            data-bs-toggle="modal" class="btn btn-primary btn-sm"><i
+                                                            data-bs-toggle="modal" class="btn btn-success btn-sm"><i
                                                                 class='fa fa-edit'></i> Update</a>
+                                                        <a href="#addappointment{{ $item->id }}"
+                                                            data-bs-toggle="modal" class="btn btn-primary btn-sm"><i
+                                                                class='fa fa-add'></i> Add</a>
                                                     </div>
                                                     @include('modalpopup.Episode.episodeaction')
                                                 @endif

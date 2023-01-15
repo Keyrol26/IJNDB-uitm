@@ -43,7 +43,6 @@ Route::post('/update/{patientid}/{id}', ['as' => 'allergy.update', 'uses' => 'Pa
 // Route::get('/exportPatientCsv', [PatientController::class, 'exportPatientCsv']);
 // Route::get('/patient/pdf', [PatientController::class, 'exportPatientPDF']);
 
-
 //Episode
 Route::post('/episodestore', 'PatientController@episodestore');
 Route::get('/episode/{id}', [EpisodeController::class, 'showEpisode']);
@@ -51,6 +50,7 @@ Route::post('/Episodeupdate/{patientid}/{id}', ['as' => 'episode.update', 'uses'
 Route::delete('/EpisodeDelete/{patientid}/{id}', ['as' => 'episode.delete', 'uses' => 'EpisodeController@destroyepisode']);
 
 //episodeAppointment
+Route::post('/appointmentstore', 'AppointmentController@appointmentstore');
 Route::get('/epsappointment/{id}', [EpisodeController::class, 'epsappointment'])->name('epsappointment');
 
 //elab

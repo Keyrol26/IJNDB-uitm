@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Appointment extends Model
 {
-    use HasFactory,Sortable;
+    use HasFactory, Sortable;
     protected $table = 'appointments';
     protected $primaryKey = 'id';
+    protected $guarded = [];
+    public $timestamps = false;
     protected $dateFormat = 'Y-m-d H:i';
     public function patient()
     {

@@ -24,5 +24,8 @@ Allergy
 
 Patient
 -Add
--Delete
+-Delete 
 -Update
+
+Appointment
+-Add
