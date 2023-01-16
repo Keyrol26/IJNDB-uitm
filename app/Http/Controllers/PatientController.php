@@ -25,7 +25,7 @@ class PatientController extends Controller
         // $hospital = Hospital::groupby('hospital');
         $hospital = Hospital::all()->pluck('hospital');
 
-
+        // dd($hospital);
         // dd($sex);
 
         if ((!empty($filterpatient)) or (!empty($filter))) {
@@ -69,7 +69,7 @@ class PatientController extends Controller
         // $data = Allergy::findOrFail($id);
         //   dd($data);
         // $date= now()->format('Y-m-d');
-        // dd($count);
+        
 
         return view('profile', compact('profile', 'hospital', 'count'));
     }

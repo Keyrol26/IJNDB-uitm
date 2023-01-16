@@ -62,7 +62,7 @@
                             </div>
                             <br>
                             <!-- end -->
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="appt">
                                 <thead>
                                     <tr>
                                         <th scope="col">@sortablelink('patient.mrn','MRN')</th>
@@ -109,6 +109,29 @@
             </div>
 
         </section>
-
+        @include('layouts.multiple.printscript')
+        <script>
+            $(document).ready(function() {
+                $('#appt').DataTable({
+                    "bPaginate": false, //hide pagination
+                "bFilter": false, //hide Search bar
+                "bInfo": false, // hide showing entries
+                'responsive': true,
+                "ordering": false,
+                "paging": false,
+                "bProcessing": true,
+                "sAutoWidth": false,
+                "bDestroy": true,
+                "iDisplayStart ": 10,
+                "iDisplayLength": 10,
+                "sPaginationType": "bootstrap", // full_numbers
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                    
+                });
+            });
+        </script>
     </main>
 @endsection

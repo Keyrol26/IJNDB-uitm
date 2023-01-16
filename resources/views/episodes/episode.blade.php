@@ -22,8 +22,11 @@
                         <div class="card-body">
                             <h5 class="card-title">Episode List </h5>
                             <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addepisode"
-                                class="btn btn-primary pull-right" style="float:right"><i class="fa fa-plus"></i>
-                                Episode</button>
+                                class="btn btn-primary pull-right" style="float:right;margin:5px;"><i class="fa fa-plus"></i>
+                                Add Episode</button>
+                            <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addmhd"
+                                class="btn btn-primary pull-right" style="float:right; margin:5px;"><i class="fa fa-plus"></i>
+                                Add MHD</button>
                             @include('modalpopup.Episode.add')
                             <br>
                             <br>
@@ -31,7 +34,7 @@
                             {{-- <p>Last Data Extracted on {{ $update->updatetime }}</p> --}}
                             {{-- <h2>{{ $episode->name }}</h2> --}}
                             {{-- <h2>{{ $episode->mrn }}</h2> --}}
-                            <table class="table table-hover datatable">
+                            <table class="table table-hover datatable" id="episode">
                                 <thead>
                                     <tr>
                                         <th scope="col">Config</th>
@@ -65,9 +68,8 @@
                                                         <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
                                                             data-bs-toggle="modal" class="btn btn-success btn-sm"><i
                                                                 class='fa fa-edit'></i> Update</a>
-                                                        <a href="#addappointment{{ $item->id }}"
-                                                            data-bs-toggle="modal" class="btn btn-primary btn-sm"><i
-                                                                class='fa fa-add'></i> Add</a>
+                                                        <a href="#addappointment{{ $item->id }}" data-bs-toggle="modal"
+                                                            class="btn btn-primary btn-sm"><i class='fa fa-add'></i> Add</a>
                                                     </div>
                                                     @include('modalpopup.Episode.episodeaction')
                                                 @endif

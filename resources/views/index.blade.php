@@ -33,7 +33,7 @@
                                 <br>
                                 <div class="col-md-12 col-md-offset-1">
                                     <h2>
-                                        <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addnew" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Patient</button>
+                                        <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addnew" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>Add Patient</button>
                                     </h2>
                                 </div>
                             </div><!-- End Search Bar -->
@@ -101,6 +101,40 @@
                 </div><!-- End Recent Sales -->
             </div>
         </section>
+        {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script> --}}
+        @include('layouts.multiple.printscript')
+        <script>
+            $(document).ready(function() {
+                $('#patienttable').DataTable({
+                    "bPaginate": false, //hide pagination
+                "bFilter": false, //hide Search bar
+                "bInfo": false, // hide showing entries
+                'responsive': true,
+                "ordering": false,
+                "paging": false,
+                "bProcessing": true,
+                "sAutoWidth": false,
+                "bDestroy": true,
+                "iDisplayStart ": 10,
+                "iDisplayLength": 10,
+                "sPaginationType": "bootstrap", // full_numbers
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                    
+                });
+            });
+        </script>
         <!-- Large Modal -->
         
 @include('modalpopup.addpatient')

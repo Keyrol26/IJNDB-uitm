@@ -52,7 +52,8 @@ Route::delete('/EpisodeDelete/{patientid}/{id}', ['as' => 'episode.delete', 'use
 //episodeAppointment
 Route::post('/appointmentstore', 'AppointmentController@appointmentstore');
 Route::get('/epsappointment/{id}', [EpisodeController::class, 'epsappointment'])->name('epsappointment');
-
+Route::post('/Appointmentupdate/{patientid}/{id}', ['as' => 'appt.update', 'uses' => 'AppointmentController@apptupdate']);
+Route::delete('/AppointmentDelete/{patientid}/{id}', ['as' => 'appt.delete', 'uses' => 'AppointmentController@apptepisode']);
 //elab
 Route::get('/elab/{id}', [EpisodeController::class, 'elab'])->name('elab');
 
@@ -62,6 +63,7 @@ Route::get('/epsmedication/{id}', [EpisodeController::class, 'medication'])->nam
 //Mhd
 Route::get('/mhd', [MhdController::class, 'showmhd'])->name('showmhd');
 Route::get('/getMhdDetails/{empid}', [MhdController::class, 'getMhdDetails'])->name('getMhdDetails');
+Route::post('/mhdstore', 'MhdController@mhdstore');
 
 //Inpatient
 Route::get('/inpatient', [InpatientController::class, 'showinpatient'])->name('inpatient');

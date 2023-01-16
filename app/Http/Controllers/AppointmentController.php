@@ -84,7 +84,7 @@ class AppointmentController extends Controller
         // specific id relation;
         $patientid = $request->patient_id;
         $episodeid = $request->episode_id;
-
+        // dd($episodeid);
         //res_rowid (1 patient same resrowid)
         $currentresrowid = Appointment::select("res_rowid")->max('res_rowid');
         // $resrowid = Appointment::find($patientid)
@@ -107,7 +107,7 @@ class AppointmentController extends Controller
             ->max('appt_rowid');
         
         $apptrowid = $curapptid + 1;
-        // dd($apptrowid);
+        
 
 
         $data = new Appointment([
@@ -125,5 +125,29 @@ class AppointmentController extends Controller
         ]);
         $data->save();
         return redirect("epsappointment/$episodeid");
+    }
+    public function apptepisode(Request $request)
+    {
+        $id = $request->id;
+        $patientid = $request->patientid;
+        $data = Appointment::where('patient_id', $patientid)
+            ->where('id', $id);
+        // dd($data);
+        $data->delete();
+        // return redirect('home');
+        return redirect("/episode/$patientid");
+    }
+
+
+    public function apptupdate(Request $request)
+    {
+        $id = $request->id;
+        $patientid = $request->patientid;
+        $episodeid = $request->episode_id;
+        $data = Appointment::where('patient_id', $patientid)
+            ->where('id', $id);
+        $input = request()->except(['_token']);
+        $data->update($input);
+        return redirect("/epsappointment/$episodeid");
     }
 }

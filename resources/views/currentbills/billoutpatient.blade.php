@@ -33,7 +33,7 @@
                             </div><!-- End Search Bar -->
                             <br>
                             <!--table Start-->
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="billout">
                                 <thead>
                                     <tr>
                                         <th scope="col">@sortablelink('mrn', 'MRN')</th>
@@ -81,5 +81,29 @@
                 </div>
             </div>
         </section>
+        @include('layouts.multiple.printscript')
+        <script>
+            $(document).ready(function() {
+                $('#billout').DataTable({
+                    "bPaginate": false, //hide pagination
+                "bFilter": false, //hide Search bar
+                "bInfo": false, // hide showing entries
+                'responsive': true,
+                "ordering": false,
+                "paging": false,
+                "bProcessing": true,
+                "sAutoWidth": false,
+                "bDestroy": true,
+                "iDisplayStart ": 10,
+                "iDisplayLength": 10,
+                "sPaginationType": "bootstrap", // full_numbers
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                    
+                });
+            });
+        </script>
     </main>
 @endsection

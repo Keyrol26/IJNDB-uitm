@@ -8,7 +8,7 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/home">Patient</a></li>
-                    <li class="breadcrumb-item"><a href="javascript:history.back()">Episode</a></li>
+                    <li class="breadcrumb-item" ><a href="/episode/{{ $data->patient_id }}">Episode</a></li>
                     <li class="breadcrumb-item active"><a href onClick="window.location.reload()">eLab</a></li>
                 </ol>
             </nav>

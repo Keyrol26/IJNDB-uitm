@@ -34,7 +34,7 @@
                             </div><!-- End Search Bar -->
                             <br>
                             {{-- <p>Total InPatient : {{ $count }}</p> --}}
-                            <table id="epstable" class="table table-hover">
+                            <table id="inpatient" class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th scope="col">@sortablelink('episode_no', 'Eps. No')</th>
@@ -102,20 +102,34 @@
                 </div>
             </div>
         </div>
+        @include('layouts.multiple.printscript')
+        <script>
+            $(document).ready(function() {
+                $('#inpatient').DataTable({
+                    "bPaginate": false, //hide pagination
+                "bFilter": false, //hide Search bar
+                "bInfo": false, // hide showing entries
+                'responsive': true,
+                "ordering": false,
+                "paging": false,
+                "bProcessing": true,
+                "sAutoWidth": false,
+                "bDestroy": true,
+                "iDisplayStart ": 10,
+                "iDisplayLength": 10,
+                "sPaginationType": "bootstrap", // full_numbers
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                    
+                });
+            });
+        </script>
 
 
     </main>
-    {{-- <script>
-        import {
-            DataTable
-        } from "simple-datatables"
-
-        const dataTable = new DataTable("#epstable", {
-            searchable: false,
-            sortable:false
-            ...
-        })
-    </script> --}}
+    
     <script type='text/javascript'>
         $(document).ready(function() {
 

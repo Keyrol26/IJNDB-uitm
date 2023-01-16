@@ -37,7 +37,9 @@ class EpisodeController extends Controller
             ->groupBy('medications.oeord_rowid')
             ->get();
 
-        return view('episodes/episode', compact('episodes', 'countselab', 'countsappoinment', 'countsmedic'));
+        $episodeno = Patient::findorfail($id)->episode()->pluck('episode_no');
+        // dd($episodeno);
+        return view('episodes/episode', compact('episodes', 'countselab', 'countsappoinment', 'countsmedic', 'episodeno'));
     }
 
     public function elab($id)
@@ -54,7 +56,7 @@ class EpisodeController extends Controller
         $data = Episode::with('appt', 'patient')
             ->where('id', $id)
             ->first();
-        //    dd($data->epsappointment);
+        // dd($data->patient_id);
         return view('episodes/epsappointment', compact('data'));
     }
 

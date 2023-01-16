@@ -99,6 +99,7 @@
                 </div><!-- End Recent Sales -->
             </div>
         </section>
+        
     </main>
     <script>
         $(document).ready(function() {

@@ -86,26 +86,30 @@
                 </div>
             </div>
         </section>
-        {{-- <script>
+        @include('layouts.multiple.printscript')
+        <script>
             $(document).ready(function() {
-                var table = $('#billin').DataTable({
-                    'responsive': true,
-                    "ordering": false,
-                    "paging": false,
-                    "bProcessing": true,
-                    "sAutoWidth": false,
-                    "bDestroy": true,
-                    "sPaginationType": "bootstrap", // full_numbers
-                    "iDisplayStart ": 10,
-                    "iDisplayLength": 10,
+                $('#billin').DataTable({
                     "bPaginate": false, //hide pagination
-                    "bFilter": false, //hide Search bar
-                    "bInfo": false, // hide showing entries
-                    // 'sort' : false
-
+                "bFilter": false, //hide Search bar
+                "bInfo": false, // hide showing entries
+                'responsive': true,
+                "ordering": false,
+                "paging": false,
+                "bProcessing": true,
+                "sAutoWidth": false,
+                "bDestroy": true,
+                "iDisplayStart ": 10,
+                "iDisplayLength": 10,
+                "sPaginationType": "bootstrap", // full_numbers
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                    
                 });
             });
-        </script> --}}
+        </script>
 
     </main>
 @endsection

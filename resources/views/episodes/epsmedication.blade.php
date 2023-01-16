@@ -7,7 +7,7 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/home">Patient</a></li>
-                    <li class="breadcrumb-item"><a href="javascript:history.back()">Episode</a></li>
+                    <li class="breadcrumb-item" ><a href="/episode/{{ $data->patient_id }}">Episode</a></li>
                     <li class="breadcrumb-item active"><a href onClick="window.location.reload()">Medication</a></li>
                 </ol>
             </nav>
@@ -73,7 +73,7 @@
                                         <div class="card recent-sales overflow-auto">
                                             <div class="card-body">
                                                 <h5 class="card-title">Medication</h5>
-                                                <table class="table datatable">
+                                                <table class="table datatable" id="medic">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">Item Code</th>
@@ -119,5 +119,29 @@
                 </div><!-- End Recent Sales -->
             </div>
         </section>
+        @include('layouts.multiple.printscript')
+        <script>
+            $(document).ready(function() {
+                $('#medic').DataTable({
+                    "bPaginate": false, //hide pagination
+                "bFilter": false, //hide Search bar
+                "bInfo": false, // hide showing entries
+                'responsive': true,
+                "ordering": false,
+                "paging": false,
+                "bProcessing": true,
+                "sAutoWidth": false,
+                "bDestroy": true,
+                "iDisplayStart ": 10,
+                "iDisplayLength": 10,
+                "sPaginationType": "bootstrap", // full_numbers
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                    
+                });
+            });
+        </script>
     </main>
 @endsection

@@ -22,11 +22,17 @@
                          <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                              <h2>{{ $profile->name }}</h2>
                              <h2>{{ $profile->mrn }}</h2>
-                             <br>
-                             <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addepisodeprofile"
-                                 class="btn btn-primary pull-right" style="align-items:center"><i class="fa fa-plus"></i>
-                                 Episode</button>
-                                 @include('modalpopup.episodeadd')
+                             <div class="card-body profile-card pt-2  align-items-center">
+                                 <button type="button" id="click-me"data-bs-toggle="modal"
+                                     data-bs-target="#addepisodeprofile" class="btn btn-primary pull-right"
+                                     style="align-items:center"><i class="fa fa-plus"></i>
+                                     Episode</button>
+                                 {{-- <button type="button" id="click-me"data-bs-toggle="modal"
+                                     data-bs-target="#addepisodeprofile" class="btn btn-primary pull-right"
+                                     style="align-items:center"><i class="fa fa-plus"></i>
+                                     MHD</button> --}}
+                             </div>
+                             @include('modalpopup.episodeadd')
 
                          </div>
                          {{-- <div class="card-body pt-2 " style="align-content: center">
@@ -63,14 +69,15 @@
                                                  @foreach ($profile->allergy as $item)
                                                      <tr>
                                                          <td>
-                                                            @if($item->patient_id > 20)
-                                                            <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
-                                                                 data-bs-toggle="modal" class="btn btn-danger btn-sm"><i
-                                                                     class='fa fa-trash'></i> Delete</a>
-                                                             <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
-                                                                 data-bs-toggle="modal" class="btn btn-primary btn-sm"><i
-                                                                     class='fa fa-edit'></i> Update</a>
-                                                             @include('modalpopup.allergyaction')
+                                                             @if ($item->patient_id > 20)
+                                                                 <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
+                                                                     data-bs-toggle="modal" class="btn btn-danger btn-sm"><i
+                                                                         class='fa fa-trash'></i> Delete</a>
+                                                                 <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
+                                                                     data-bs-toggle="modal"
+                                                                     class="btn btn-primary btn-sm"><i
+                                                                         class='fa fa-edit'></i> Update</a>
+                                                                 @include('modalpopup.allergyaction')
                                                              @endif
                                                          </td>
                                                          <td>{{ $item->update_date }}</td>
@@ -97,14 +104,14 @@
                                              </li>
                                          </ul>
                                          <div class="tab-content pt-2">
-                                             <div class="tab-pane fade  profile-overview" id="profile-overview">
+                                             <div class="tab-pane fade show active profile-overview" id="profile-overview">
                                                  <div class="card-body " style="position:relative; left:100px;">
                                                      <h5 class="card-title">Patient Details</h5>
                                                      @include('profile.details')
                                                  </div>
                                              </div>
 
-                                             <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+                                             <div class="tab-pane fade  profile-edit pt-3" id="profile-edit">
                                                  <!-- Profile Edit Form -->
                                                  <div class="card-body " style="position:relative; left:100px;">
 
@@ -372,11 +379,11 @@
                                                              </div>
                                                          </div>
                                                          <br>
-                                                         @if($profile->patient_id > 20)
-                                                         <div class="text-center">
-                                                             <button type="submit"
-                                                                 class="btn btn-danger mt-3 ">Submit</button>
-                                                         </div>
+                                                         @if ($profile->patient_id > 20)
+                                                             <div class="text-center">
+                                                                 <button type="submit"
+                                                                     class="btn btn-danger mt-3 ">Submit</button>
+                                                             </div>
                                                          @endif
                                                  </div>
                                              </div>

@@ -68,7 +68,7 @@
                                         <div class="card recent-sales overflow-auto">
                                             <div class="card-body">
                                                 <h5 class="card-title">Medication</h5>
-                                                <table class="table table-hover datatable">
+                                                <table class="table table-hover" id="medic">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">Item Code</th>
@@ -115,5 +115,17 @@
                 </div>
             </div>
         </section>
+        @include('layouts.multiple.printscript')
+        <script>
+            $(document).ready(function() {
+                $('#medic').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                    
+                });
+            });
+        </script>
     </main>
 @endsection

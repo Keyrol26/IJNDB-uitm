@@ -8,3 +8,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
 <link href="{{ asset('multiple/css/modal.css') }}" rel="stylesheet">
 {{-- <link href="{{ asset('multiple/css/modaltest.css') }}" rel="stylesheet"> --}}
+
+

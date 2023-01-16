@@ -18,6 +18,7 @@ class Mhd extends Model
     public $incrementing = false;
     protected $primaryKey = 'id';
     protected $dateFormat = 'Y-m-d H:i';
+    protected $guarded = [];
     public $sortable = ['episode_no','source'];
 
     public function episode()
