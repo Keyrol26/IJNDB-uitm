@@ -21,6 +21,24 @@
                     <div class="card recent-sales overflow-auto">
                         <div class="card-body">
                             <h5 class="card-title">Episode List </h5>
+                            @if ($message = Session::get('episodeadd'))
+                                <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show" role="alert">
+                                {{ $message }}
+                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+                            @if ($message = Session::get('episodedelete'))
+                                <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show" role="alert">
+                                {{ $message }}
+                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+                            @if ($message = Session::get('episodeupdate'))
+                                <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show" role="alert">
+                                {{ $message }}
+                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
                             <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addepisode"
                                 class="btn btn-primary pull-right" style="float:right;margin:5px;"><i class="fa fa-plus"></i>
                                 Add Episode</button>
@@ -60,7 +78,7 @@
                                     @foreach ($episodes as $item)
                                         <tr>
                                             <td>
-                                                @if ($item->patient_id > 20)
+                                                @if ($item->patient_id > 0)
                                                     <div class="d-grid gap-2">
                                                         <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
                                                             data-bs-toggle="modal" class="btn btn-danger btn-sm"><i
@@ -69,7 +87,7 @@
                                                             data-bs-toggle="modal" class="btn btn-success btn-sm"><i
                                                                 class='fa fa-edit'></i> Update</a>
                                                         <a href="#addappointment{{ $item->id }}" data-bs-toggle="modal"
-                                                            class="btn btn-primary btn-sm"><i class='fa fa-add'></i> Add</a>
+                                                            class="btn btn-primary btn-sm"><i class='fa fa-add'></i> Add Appointment</a>
                                                     </div>
                                                     @include('modalpopup.Episode.episodeaction')
                                                 @endif

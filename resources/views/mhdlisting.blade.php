@@ -20,6 +20,14 @@
                     <div class="card recent-sales overflow-auto">
                         <div class="card-body">
                             <h5 class="card-title">MHD Listing </h5>
+                            @if ($message = Session::get('mhdadd'))
+                                <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                    role="alert">
+                                    {{ $message }}
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
                             <p>Last Data Extracted on {{ $update->updatetime }}</p>
                             <div class="search-bar">
                                 <form class="search-form d-flex" method="get">

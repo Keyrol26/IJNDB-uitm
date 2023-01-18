@@ -80,7 +80,7 @@ class PatientController extends Controller
         $data = Patient::findOrFail($id);
         $input = $request->all();
         $data->update($input);
-        return redirect("/profile/$id");
+        return redirect("/profile/$id")->with('success', 'Patient Informations Have been Updated Succesfully');
     }
     public function allergyupdate(Request $request)
     {
@@ -90,15 +90,15 @@ class PatientController extends Controller
             ->where('id', $id);
         $input = request()->except(['_token']);
         $data->update($input);
-        return redirect("/profile/$patientid");
+        return redirect("/profile/$patientid")->with('allergyupdate', 'Patient Allergy Have been Updated Succesfully');
     }
 
     public function delete($id)
     {
         $data = Patient::findOrFail($id);
         $data->delete();
-        // return redirect('home');
-        return back();
+        return redirect('home')->with('patientdelete', 'Patient Have been Deleted Succesfully');
+        // return back();
     }
     public function allergydelete(Request $request)
     {
@@ -109,7 +109,7 @@ class PatientController extends Controller
         // dd($data);
         $data->delete();
         // return redirect('home');
-        return redirect("/profile/$patientid");
+        return redirect("/profile/$patientid")->with('allergydelete', 'Patient Allergy Have been Deleted Succesfully');
     }
 
     public function store(Request $request)
@@ -144,7 +144,7 @@ class PatientController extends Controller
 
         ]);
         $data->save();
-        return back();
+        return redirect('/home')->with('patientadd', 'Patient Have been Add Succesfully');
     }
     public function episodestore(Request $request)
     {-
@@ -173,7 +173,7 @@ class PatientController extends Controller
             "doctor" => $request->doctor,
         ]);
         $data->save();
-        return redirect("/episode/$patientid");
+        return redirect("/episode/$patientid")->with('episodestore', 'Patient Episode Have been Add Succesfully');
     }
     public function allergystore(Request $request)
     {
@@ -197,6 +197,6 @@ class PatientController extends Controller
             "allergen_text" => $request->text,
         ]);
         $data->save();
-        return redirect("/profile/$id");
+        return redirect("/profile/$id")->with('allergystore', 'Patient Allergy Have been Add Succesfully');
     }
 }

@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 {!! Form::open(['url' => 'episodestore']) !!}
-                {!! Form::text('patient_id', $profile->id, ['class' => 'form-control', 'placeholder' => 'Department', 'hidden']) !!}
+                {!! Form::text('patient_id', $profile->id, ['class' => 'form-control', 'hidden']) !!}
                 <div class="mb-3">
                     {!! Form::label('episodetype', 'Episode Type') !!}
                     {!! Form::select('episodetype', ['Emergency' => 'Emergency', 'Inpatient' => 'Inpatient','Outpatient' => 'Outpatient'],null, ['class' => 'form-select', 'required']) !!}
@@ -29,11 +29,11 @@
                 </div>
                 <div class="mb-3">
                     {!! Form::label('department', 'Department') !!}
-                    {!! Form::text('department', '', ['class' => 'form-control', 'placeholder' => 'Department', 'required']) !!}
+                    {!! Form::text('department', '', ['class' => 'form-control', 'placeholder' => 'Enter Episode Department', 'required']) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::label('doctor', 'Doctor') !!}
-                    {!! Form::text('doctor', '', ['class' => 'form-control', 'placeholder' => 'Doctor', 'required']) !!}
+                    {!! Form::text('doctor', '', ['class' => 'form-control', 'placeholder' => 'Enter Episode Doctor', 'required']) !!}
                 </div>
             </div>
             <div class="modal-footer">

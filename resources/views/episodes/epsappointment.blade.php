@@ -18,14 +18,15 @@
                     <div class="card recent-sales overflow-auto">
                         <div class="card-body">
                             <h5 class="card-title">Episode List </h5>
-                            <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addappointment{{ $data->id }}"
-                                class="btn btn-primary pull-right" style="float:right"><i class="fa fa-plus"></i>
+                            <button type="button" id="click-me"data-bs-toggle="modal"
+                                data-bs-target="#addappointment{{ $data->id }}" class="btn btn-primary pull-right"
+                                style="float:right"><i class="fa fa-plus"></i>
                                 Add Appointment</button>
-                                <br>
+                            <br>
                             <br>
                             <br>
                             @include('modalpopup.Appointment.add')
-                            <table class="table table-hover" >
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th scope="col">Episode No</th>
@@ -79,6 +80,30 @@
                                         <div class="card recent-sales overflow-auto">
                                             <div class="card-body">
                                                 <h5 class="card-title">Appointment</h5>
+                                                @if ($message = Session::get('apptadd'))
+                                                    <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                                        role="alert">
+                                                        {{ $message }}
+                                                        <button type="button" class="btn-close btn-close-white"
+                                                            data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                @endif
+                                                @if ($message = Session::get('apptdelete'))
+                                                    <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                                        role="alert">
+                                                        {{ $message }}
+                                                        <button type="button" class="btn-close btn-close-white"
+                                                            data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                @endif
+                                                @if ($message = Session::get('apptupdate'))
+                                                    <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                                        role="alert">
+                                                        {{ $message }}
+                                                        <button type="button" class="btn-close btn-close-white"
+                                                            data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                @endif
                                                 <table class="table datatable" id="appt">
                                                     <thead>
                                                         <tr>
@@ -95,17 +120,19 @@
                                                         @foreach ($data->appt as $item)
                                                             <tr>
                                                                 <td>
-                                                                    @if ($data->patient_id > 20)
-                                                                        <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
-                                                                            data-bs-toggle="modal"
-                                                                            class="btn btn-danger btn-sm"><i
-                                                                                class='fa fa-trash'></i> Delete</a>
-                                                                        <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
-                                                                            data-bs-toggle="modal"
-                                                                            class="btn btn-primary btn-sm"><i
-                                                                                class='fa fa-edit'></i> Update</a>
-                                                                        @include('modalpopup.Appointment.appointmentaction')
-                                                                    @endif
+                                                                    {{-- @if ($data->patient_id > 20) --}}
+                                                                    <div class="d-grid gap-2">
+                                                                    <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
+                                                                        data-bs-toggle="modal"
+                                                                        class="btn btn-danger btn-sm"><i
+                                                                            class='fa fa-trash'></i> Delete</a>
+                                                                    <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
+                                                                        data-bs-toggle="modal"
+                                                                        class="btn btn-primary btn-sm"><i
+                                                                            class='fa fa-edit'></i> Update</a>
+                                                                    @include('modalpopup.Appointment.appointmentaction')
+                                                                    </div>      
+                                                                    {{-- @endif --}}
                                                                 </td>
                                                                 <td>{{ $item->appointment_date }}</td>
                                                                 <td>{{ $item->appointment_time }}</td>
@@ -132,22 +159,22 @@
             $(document).ready(function() {
                 $('#appt').DataTable({
                     "bPaginate": false, //hide pagination
-                "bFilter": false, //hide Search bar
-                "bInfo": false, // hide showing entries
-                'responsive': true,
-                "ordering": false,
-                "paging": false,
-                "bProcessing": true,
-                "sAutoWidth": false,
-                "bDestroy": true,
-                "iDisplayStart ": 10,
-                "iDisplayLength": 10,
-                "sPaginationType": "bootstrap", // full_numbers
+                    "bFilter": false, //hide Search bar
+                    "bInfo": false, // hide showing entries
+                    'responsive': true,
+                    "ordering": false,
+                    "paging": false,
+                    "bProcessing": true,
+                    "sAutoWidth": false,
+                    "bDestroy": true,
+                    "iDisplayStart ": 10,
+                    "iDisplayLength": 10,
+                    "sPaginationType": "bootstrap", // full_numbers
                     dom: 'Bfrtip',
                     buttons: [
                         'copy', 'csv', 'excel', 'pdf', 'print'
                     ]
-                    
+
                 });
             });
         </script>

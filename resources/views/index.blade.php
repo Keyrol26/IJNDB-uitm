@@ -18,6 +18,18 @@
                     <div class="card recent-sales overflow-auto">
                         <div class="card-body">
                             <h5 class="card-title">Patient Listing </h5>
+                            @if ($message = Session::get('patientadd'))
+                                <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show" role="alert">
+                                {{ $message }}
+                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+                            @if ($message = Session::get('patientdelete'))
+                                <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show" role="alert">
+                                {{ $message }}
+                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
                             <p>Last Data Extracted on {{ $update->updatetime }}</p>
                             <div class='dataTable-search' class="pull-left">
                                 <form class="search-form d-flex" method="get">
@@ -81,14 +93,16 @@
                                             <td>{{ $item->postcode }}</td>
                                             <td>{{ $item->medrecordlocation }}</td>
                                             <td>
+                                                <div class="d-grid gap-2">
                                                 @if (!empty($item->patient_id))
                                                     <a type="button" class="btn btn-primary btn-sm"href="/episode/{{ $item->id }}">Episode</a>
                                                 @else
                                                 <button type="button" class="btn btn-primary btn-sm" disabled>Episode</button>
                                                 @endif
-                                                @if ($item->id > 20)
+                                                @if ($item->id > 0)
                                                 <a href="#delete{{$item->id}}" data-bs-toggle="modal" class="btn btn-danger btn-sm"><i class='fa fa-trash'></i> Delete</a>
                                                 @include('modalpopup.action')
+                                                </div>
                                                 @endif
                                             </td>
                                         </tr>

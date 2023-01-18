@@ -124,18 +124,19 @@ class AppointmentController extends Controller
             "service" => $request->service,
         ]);
         $data->save();
-        return redirect("epsappointment/$episodeid");
+        return redirect("epsappointment/$episodeid")->with('apptadd', 'Patient Appointment Have been Add Succesfully');
     }
-    public function apptepisode(Request $request)
+    public function apptdelete(Request $request)
     {
         $id = $request->id;
+        $episodeid = $request->episodeid;
         $patientid = $request->patientid;
         $data = Appointment::where('patient_id', $patientid)
             ->where('id', $id);
         // dd($data);
         $data->delete();
         // return redirect('home');
-        return redirect("/episode/$patientid");
+        return redirect("/epsappointment/$episodeid")->with('apptdelete', 'Patient Appointment Have been Deleted Succesfully');
     }
 
 
@@ -148,6 +149,6 @@ class AppointmentController extends Controller
             ->where('id', $id);
         $input = request()->except(['_token']);
         $data->update($input);
-        return redirect("/epsappointment/$episodeid");
+        return redirect("/epsappointment/$episodeid")->with('apptupdate', 'Patient Appointment Have been Updated Succesfully');
     }
 }

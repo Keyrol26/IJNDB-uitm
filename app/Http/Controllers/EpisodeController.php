@@ -79,7 +79,7 @@ class EpisodeController extends Controller
         // dd($data);
         $data->delete();
         // return redirect('home');
-        return redirect("/episode/$patientid");
+        return redirect("/episode/$patientid")->with('episodedelete', 'Patient Episode Have been Deleted Succesfully');
     }
 
 
@@ -91,7 +91,7 @@ class EpisodeController extends Controller
             ->where('id', $id);
         $input = request()->except(['_token']);
         $data->update($input);
-        return redirect("/episode/$patientid");
+        return redirect("/episode/$patientid")->with('episodeupdate', 'Patient Episode Details Have been Updated Succesfully');
     }
 
 

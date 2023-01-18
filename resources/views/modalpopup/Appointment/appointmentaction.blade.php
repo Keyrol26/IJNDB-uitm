@@ -10,7 +10,7 @@
             <div class="modal-body">
                 {!! Form::model($item, [
                     'method' => 'delete',
-                    'route' => ['appt.delete', 'patientid' => $item->patient_id, 'id' => $item->id],
+                    'route' => ['appt.delete', 'patientid' => $item->patient_id, 'id' => $item->id, 'episodeid'=> $item->episode_id],
                 ]) !!}
                 <h4 class="text-center">Are you sure you want to delete item?</h4>
                 <br>
@@ -82,7 +82,7 @@
                         {!! Form::label('resource_location', 'Resource Location') !!}
                         {!! Form::text('resource_location', $item->resource_location, [
                             'class' => 'form-control',
-                            'placeholder' => 'Resource Location',
+                            'placeholder' => 'Enter Appointment Resource Location',
                             'required',
                         ]) !!}
                     </div>
@@ -90,13 +90,13 @@
                         {!! Form::label('resource', 'Resource') !!}
                         {!! Form::text('resource', $item->resource, [
                             'class' => 'form-control',
-                            'placeholder' => 'Resource',
+                            'placeholder' => 'Enter Appointment Resource',
                             'required',
                         ]) !!}
                     </div>
                     <div class="mb-3">
                         {!! Form::label('service', 'Service') !!}
-                        {!! Form::text('service', $item->service, ['class' => 'form-control', 'placeholder' => 'Service', 'required']) !!}
+                        {!! Form::text('service', $item->service, ['class' => 'form-control', 'placeholder' => 'Enter Appointment Service', 'required']) !!}
                     </div>
                 </div>
             </div>

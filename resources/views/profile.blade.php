@@ -13,15 +13,15 @@
                  </ol>
              </nav>
          </div><!-- End Page Title -->
-
-
          <section class="section profile">
              <div class="row">
                  <div class="col-lg-10 ">
                      <div class="card">
+
                          <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                              <h2>{{ $profile->name }}</h2>
                              <h2>{{ $profile->mrn }}</h2>
+
                              <div class="card-body profile-card pt-2  align-items-center">
                                  <button type="button" id="click-me"data-bs-toggle="modal"
                                      data-bs-target="#addepisodeprofile" class="btn btn-primary pull-right"
@@ -49,6 +49,31 @@
                                  <!-- Info -->
                                  <div class="card" style="border-color: #6776F4; border-style: dashed;">
                                      <div class="card-body">
+                                         @if ($message = Session::get('allergystore'))
+                                             <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                                 role="alert">
+                                                 {{ $message }}
+                                                 <button type="button" class="btn-close btn-close-white"
+                                                     data-bs-dismiss="alert" aria-label="Close"></button>
+                                             </div>
+                                         @endif
+                                         @if ($message = Session::get('allergyupdate'))
+                                             <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                                 role="alert">
+                                                 {{ $message }}
+                                                 <button type="button" class="btn-close btn-close-white"
+                                                     data-bs-dismiss="alert" aria-label="Close"></button>
+                                             </div>
+                                         @endif
+                                         @if ($message = Session::get('allergydelete'))
+                                             <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                                 role="alert">
+                                                 {{ $message }}
+                                                 <button type="button" class="btn-close btn-close-white"
+                                                     data-bs-dismiss="alert" aria-label="Close"></button>
+                                             </div>
+                                         @endif
+
                                          <h5 class="card-title" style="float: left">Allergy</h5>
                                          <button type="button" id="click-me"data-bs-toggle="modal"
                                              data-bs-target="#addnew" class="btn btn-primary pull-right"
@@ -69,16 +94,15 @@
                                                  @foreach ($profile->allergy as $item)
                                                      <tr>
                                                          <td>
-                                                             @if ($item->patient_id > 20)
-                                                                 <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
-                                                                     data-bs-toggle="modal" class="btn btn-danger btn-sm"><i
-                                                                         class='fa fa-trash'></i> Delete</a>
-                                                                 <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
-                                                                     data-bs-toggle="modal"
-                                                                     class="btn btn-primary btn-sm"><i
-                                                                         class='fa fa-edit'></i> Update</a>
-                                                                 @include('modalpopup.allergyaction')
-                                                             @endif
+                                                             {{-- @if ($item->patient_id > 20) --}}
+                                                             <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
+                                                                 data-bs-toggle="modal" class="btn btn-danger btn-sm"><i
+                                                                     class='fa fa-trash'></i> Delete</a>
+                                                             <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
+                                                                 data-bs-toggle="modal" class="btn btn-primary btn-sm"><i
+                                                                     class='fa fa-edit'></i> Update</a>
+                                                             @include('modalpopup.allergyaction')
+                                                             {{-- @endif --}}
                                                          </td>
                                                          <td>{{ $item->update_date }}</td>
                                                          <td>{{ $item->allergen }}</td>
@@ -104,6 +128,14 @@
                                              </li>
                                          </ul>
                                          <div class="tab-content pt-2">
+                                             @if ($message = Session::get('success'))
+                                                 <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                                     role="alert">
+                                                     {{ $message }}
+                                                     <button type="button" class="btn-close btn-close-white"
+                                                         data-bs-dismiss="alert" aria-label="Close"></button>
+                                                 </div>
+                                             @endif
                                              <div class="tab-pane fade show active profile-overview" id="profile-overview">
                                                  <div class="card-body " style="position:relative; left:100px;">
                                                      <h5 class="card-title">Patient Details</h5>
@@ -379,12 +411,12 @@
                                                              </div>
                                                          </div>
                                                          <br>
-                                                         @if ($profile->patient_id > 20)
-                                                             <div class="text-center">
-                                                                 <button type="submit"
-                                                                     class="btn btn-danger mt-3 ">Submit</button>
-                                                             </div>
-                                                         @endif
+                                                         {{-- @if ($profile->patient_id > 0) --}}
+                                                         <div class="text-center">
+                                                             <button type="submit"
+                                                                 class="btn btn-danger mt-3 ">Submit</button>
+                                                         </div>
+                                                         {{-- @endif --}}
                                                  </div>
                                              </div>
                                          </div><!-- End Bordered Tabs -->

@@ -70,7 +70,7 @@ class MhdController extends Controller
 
     ]);
     $data->save();
-    return redirect("mhd");
+    return redirect("mhd")->with('mhdadd', 'MHD Have been Add Succesfully');;
   }
 
 

@@ -163,17 +163,17 @@
                     {!! Form::label('resource_location', 'Resource Location') !!}
                     {!! Form::text('resource_location', '', [
                         'class' => 'form-control',
-                        'placeholder' => 'Resource Location',
+                        'placeholder' => 'Enter Appointment Resource Location',
                         'required',
                     ]) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::label('resource', 'Resource') !!}
-                    {!! Form::text('resource', '', ['class' => 'form-control', 'placeholder' => 'Resource', 'required']) !!}
+                    {!! Form::text('resource', '', ['class' => 'form-control', 'placeholder' => 'Enter Appointment Resource', 'required']) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::label('service', 'Service') !!}
-                    {!! Form::text('service', '', ['class' => 'form-control', 'placeholder' => 'Service', 'required']) !!}
+                    {!! Form::text('service', '', ['class' => 'form-control', 'placeholder' => 'Enter Appointment Service', 'required']) !!}
                 </div>
             </div>
             <div class="modal-footer">

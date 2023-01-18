@@ -53,7 +53,7 @@ Route::delete('/EpisodeDelete/{patientid}/{id}', ['as' => 'episode.delete', 'use
 Route::post('/appointmentstore', 'AppointmentController@appointmentstore');
 Route::get('/epsappointment/{id}', [EpisodeController::class, 'epsappointment'])->name('epsappointment');
 Route::post('/Appointmentupdate/{patientid}/{id}', ['as' => 'appt.update', 'uses' => 'AppointmentController@apptupdate']);
-Route::delete('/AppointmentDelete/{patientid}/{id}', ['as' => 'appt.delete', 'uses' => 'AppointmentController@apptepisode']);
+Route::delete('/AppointmentDelete/{patientid}/{id}/{episodeid}', ['as' => 'appt.delete', 'uses' => 'AppointmentController@apptdelete']);
 //elab
 Route::get('/elab/{id}', [EpisodeController::class, 'elab'])->name('elab');
 

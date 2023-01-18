@@ -10,8 +10,8 @@
             <div class="modal-body">
                 {!! Form::open(['url' => 'store']) !!}
                 <div class="mb-3">
-                    {!! Form::label('name', 'Name') !!}
-                    {!! Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name', 'required']) !!}
+                    {!! Form::label('name', 'Enter Name') !!}
+                    {!! Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Enter Patient Name', 'required']) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::label('hospital', 'Hospital') !!}
@@ -27,28 +27,28 @@
                 </div>
                 <div class="mb-3">
                     {!! Form::label('newic', 'New IC Number') !!}
-                    {!! Form::text('newic', '', ['class' => 'form-control', 'placeholder' => 'IC Number', 'required']) !!}
+                    {!! Form::text('newic', '', ['class' => 'form-control', 'placeholder' => 'Enter Patient IC Number', 'required']) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::label('address', 'Address') !!}
                     {!! Form::textarea('address', '', [
                         'class' => 'form-control',
-                        'placeholder' => 'Address',
+                        'placeholder' => 'Enter Patient Address',
                         'style' => 'height: 100px',
                         'required',
                     ]) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::label('city', 'City') !!}
-                    {!! Form::text('city', '', ['class' => 'form-control', 'placeholder' => 'City', 'required']) !!}
+                    {!! Form::text('city', '', ['class' => 'form-control', 'placeholder' => 'Enter Patient City', 'required']) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::label('postcode', 'Postcode') !!}
-                    {!! Form::text('postcode', '', ['class' => 'form-control', 'placeholder' => 'Postcode', 'required']) !!}
+                    {!! Form::text('postcode', '', ['class' => 'form-control', 'placeholder' => 'Enter Patient Postcode', 'required']) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::label('medrecordlocation', 'Medical Record Location') !!}
-                    {!! Form::text('medrecordlocation', '', ['class' => 'form-control', 'placeholder' => 'Medical Record Location', 'required']) !!}
+                    {!! Form::text('medrecordlocation', '', ['class' => 'form-control', 'placeholder' => 'Enter Patient Medical Record Location', 'required']) !!}
                 </div>
             </div>
             <div class="modal-footer">
