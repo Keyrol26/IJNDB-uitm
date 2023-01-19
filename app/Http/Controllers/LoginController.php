@@ -50,23 +50,7 @@ class LoginController extends Controller
     function dashboard(Request $request)
     {
         if (Auth::check()) {
-            $req = $request->all();
-            $update = DB::table('updates')
-            ->first();
-            $filterpatient = $request->query('filterpatient');
-            $count = Patient::count();
-            if ((!empty($filterpatient))) {
-                $data = Patient::sortable()
-                    ->where('mrn', 'like', '%' . $filterpatient . '%')
-                    ->orwhere('name', 'like', '%' . $filterpatient . '%')
-                    ->orwhere('newic', 'like', '%' . $filterpatient . '%')
-                    ->paginate(10);
-            } else {
-                $data = Patient::sortable()
-                    ->paginate(10);
-            }
-
-            return view('index', compact('data', 'req','update','count'));
+            return redirect('home');
         }
 
         return redirect('login')->with('success', 'you are not allowed to access');

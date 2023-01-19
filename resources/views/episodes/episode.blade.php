@@ -40,10 +40,10 @@
                                 </div>
                             @endif
                             <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addepisode"
-                                class="btn btn-primary pull-right" style="float:right;margin:5px;"><i class="fa fa-plus"></i>
+                                class="btn btn-info pull-right" style="float:right;margin:5px;"><i class="fa fa-plus"></i>
                                 Add Episode</button>
                             <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addmhd"
-                                class="btn btn-primary pull-right" style="float:right; margin:5px;"><i class="fa fa-plus"></i>
+                                class="btn btn-info pull-right" style="float:right; margin:5px;"><i class="fa fa-plus"></i>
                                 Add MHD</button>
                             @include('modalpopup.Episode.add')
                             <br>
@@ -87,7 +87,7 @@
                                                             data-bs-toggle="modal" class="btn btn-success btn-sm"><i
                                                                 class='fa fa-edit'></i> Update</a>
                                                         <a href="#addappointment{{ $item->id }}" data-bs-toggle="modal"
-                                                            class="btn btn-primary btn-sm"><i class='fa fa-add'></i> Add Appointment</a>
+                                                            class="btn btn-info btn-sm"><i class='fa fa-add'></i> Add Appointment</a>
                                                     </div>
                                                     @include('modalpopup.Episode.episodeaction')
                                                 @endif

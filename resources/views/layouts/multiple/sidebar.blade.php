@@ -50,20 +50,28 @@
               </a>
           </li><!-- End appointment Page Nav -->
 
+
           <li class="nav-item">
-              <a class="nav-link {{ request()->is('billoutpatient') ? '' : 'collapsed' }}"
-                  href="{{ route('billoutpatient') }}">
-                  {{-- <img src="{{ asset('multiple/img/icon/bill.png') }}" > --}}<i class="bi bi-circle" style="font-size: 10px;"> </i>
-                  <span>Current Bill Outpatient</span>
-              </a>
-          </li><!-- End ICL Page Nav -->
-          <li class="nav-item">
-              <a class="nav-link {{ request()->is('billinpatient') ? '' : 'collapsed' }}"
-                  href="{{ route('billinpatient') }}">
-                  {{-- <img src="{{ asset('multiple/img/icon/bill.png') }}" > --}}<i class="bi bi-circle" style="font-size: 10px;"> </i>
-                  <span>Current Bill Inpatient</span>
-              </a>
-          </li><!-- End ICL Page Nav -->
+            <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-circle" style="font-size: 10px;"></i><span>Bill</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="icons-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+              <li>
+                <a class="nav-link {{ request()->is('billoutpatient') ? '' : 'collapsed' }}"
+                    href="{{ route('billoutpatient') }}">
+                    {{-- <img src="{{ asset('multiple/img/icon/bill.png') }}" > --}}<i class="bi bi-circle" style="font-size: 10px;"> </i>
+                    <span>Current Bill Outpatient</span>
+                </a>
+              </li>
+              <li>
+                <a class="nav-link {{ request()->is('billinpatient') ? '' : 'collapsed' }}"
+                    href="{{ route('billinpatient') }}">
+                    {{-- <img src="{{ asset('multiple/img/icon/bill.png') }}" > --}}<i class="bi bi-circle" style="font-size: 10px;"> </i>
+                    <span>Current Bill Inpatient</span>
+                </a>
+              </li>
+            </ul>
+          </li><!-- End Icons Nav -->
 
           <li class="nav-item">
               <a class="nav-link {{ request()->is('icl') ? '' : 'collapsed' }}" href="{{ route('icl') }}">
@@ -78,66 +86,6 @@
                   <span>OT</span>
               </a>
           </li><!-- End OT Page Nav -->
-
-          <li class="nav-heading">Document</li>
-          <li>
-              <a class="nav-link {{ request()->is('/') ? '' : 'collapsed' }}"
-                {{-- href="ms-excel:ofe|u|file:///C:/DowntimePC/Guideline/DowntimeProcessGuideline(IJNPHD).xlsx"> --}}
-                href="ms-excel:ofe|u|file:///../download/Guideline/DowntimeProcessGuideline(IJNPHD).xlsx">
-                  <i class="bi bi-circle" style="font-size: 10px;"> </i>
-                  <span>Guideline PHD</span>
-              </a>
-          </li>
-          <li>
-              <a class="nav-link {{ request()->is('/') ? '' : 'collapsed' }}"
-                {{-- href="ms-excel:ofe|u|file:///C:/DowntimePC/Guideline/DowntimeProcessGuideline(IJNSB).xlsx"> --}}
-                href="ms-excel:ofe|u|file:///../download/Guideline/DowntimeProcessGuideline(IJNSB).xlsx">
-                  <i class="bi bi-circle" style="font-size: 10px;"> </i>
-                  <span>Guideline IJNSB</span>
-              </a>
-          </li>
-          <li>
-              <a class="nav-link {{ request()->is('/') ? '' : 'collapsed' }}"
-                  href="/download/Diet/DailyPatientMeal.pdf" target="_blank">
-                  {{-- href="C:/DowntimePC/Live/DailyPatientMeal.pdf"> --}}
-                  <i class="bi bi-circle" style="font-size: 10px;"> </i>
-                  <span>Diet Patient Meal</span>
-              </a>
-          </li>
-
-          <!-- Start Folder Nav -->
-          <li class="nav-heading">Folder</li>
-          <li>
-              <a class="nav-link " href="">
-                  {{-- href="C:/DowntimePC/Live/DailyPatientMeal.pdf"> --}}
-                  <i class="bi bi-circle" style="font-size: 10px;"> </i><span>Charge Sheet</span>
-              </a>
-          </li>
-          <li>  
-              <a class="nav-link " href="file:///C:/DowntimePC/01_TrakcareForms" target="_blank">
-                  {{-- href="C:/DowntimePC/Live/DailyPatientMeal.pdf"> --}}
-                  <i class="bi bi-circle" style="font-size: 10px;"> </i><span>TrakCare Form</span>
-              </a>
-          </li>
-          {{-- <li class="nav-item">
-              <a class="nav-link collapsed" data-bs-target="#folder-nav" data-bs-toggle="collapse" href="#">
-                  <img src="{{ asset('multiple/img/icon/folder.png') }}" >
-                  <span>Folder</span><i class="bi bi-chevron-down ms-auto"></i>
-              </a>
-              <ul id="folder-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li>
-                      <a href="">
-                          <i class="bi bi-circle" style="font-size: 10px;"> </i><span>Charge Sheet</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="">
-                          <i class="bi bi-circle" style="font-size: 10px;"> </i><span>TrakCare Form</span>
-                      </a>
-                  </li>
-              </ul>
-          </li> --}}
-          <!-- End Folder Nav -->
       </ul>
 
   </aside><!-- End Sidebar-->

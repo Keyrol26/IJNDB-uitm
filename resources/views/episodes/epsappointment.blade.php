@@ -18,13 +18,7 @@
                     <div class="card recent-sales overflow-auto">
                         <div class="card-body">
                             <h5 class="card-title">Episode List </h5>
-                            <button type="button" id="click-me"data-bs-toggle="modal"
-                                data-bs-target="#addappointment{{ $data->id }}" class="btn btn-primary pull-right"
-                                style="float:right"><i class="fa fa-plus"></i>
-                                Add Appointment</button>
-                            <br>
-                            <br>
-                            <br>
+
                             @include('modalpopup.Appointment.add')
                             <table class="table table-hover">
                                 <thead>
@@ -80,6 +74,14 @@
                                         <div class="card recent-sales overflow-auto">
                                             <div class="card-body">
                                                 <h5 class="card-title">Appointment</h5>
+                                                <button type="button" id="click-me"data-bs-toggle="modal"
+                                                    data-bs-target="#addappointment{{ $data->id }}"
+                                                    class="btn btn-info pull-right" style="float:right"><i
+                                                        class="fa fa-plus"></i>
+                                                    Add Appointment</button>
+                                                <br>
+                                                <br>
+                                                <br>
                                                 @if ($message = Session::get('apptadd'))
                                                     <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
                                                         role="alert">
@@ -122,16 +124,16 @@
                                                                 <td>
                                                                     {{-- @if ($data->patient_id > 20) --}}
                                                                     <div class="d-grid gap-2">
-                                                                    <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
-                                                                        data-bs-toggle="modal"
-                                                                        class="btn btn-danger btn-sm"><i
-                                                                            class='fa fa-trash'></i> Delete</a>
-                                                                    <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
-                                                                        data-bs-toggle="modal"
-                                                                        class="btn btn-primary btn-sm"><i
-                                                                            class='fa fa-edit'></i> Update</a>
-                                                                    @include('modalpopup.Appointment.appointmentaction')
-                                                                    </div>      
+                                                                        <a href="#delete{{ $item->id }}{{ $item->patient_id }}"
+                                                                            data-bs-toggle="modal"
+                                                                            class="btn btn-danger btn-sm"><i
+                                                                                class='fa fa-trash'></i> Delete</a>
+                                                                        <a href="#edit{{ $item->id }}{{ $item->patient_id }}"
+                                                                            data-bs-toggle="modal"
+                                                                            class="btn btn-primary btn-sm"><i
+                                                                                class='fa fa-edit'></i> Update</a>
+                                                                        @include('modalpopup.Appointment.appointmentaction')
+                                                                    </div>
                                                                     {{-- @endif --}}
                                                                 </td>
                                                                 <td>{{ $item->appointment_date }}</td>

@@ -45,7 +45,7 @@
                                 <br>
                                 <div class="col-md-12 col-md-offset-1">
                                     <h2>
-                                        <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addnew" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>Add Patient</button>
+                                        <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addnew" class="btn btn-info pull-right"><i class="fa fa-plus"></i>Add Patient</button>
                                     </h2>
                                 </div>
                             </div><!-- End Search Bar -->

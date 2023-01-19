@@ -24,7 +24,7 @@
 
                              <div class="card-body profile-card pt-2  align-items-center">
                                  <button type="button" id="click-me"data-bs-toggle="modal"
-                                     data-bs-target="#addepisodeprofile" class="btn btn-primary pull-right"
+                                     data-bs-target="#addepisodeprofile" class="btn btn-info pull-right"
                                      style="align-items:center"><i class="fa fa-plus"></i>
                                      Episode</button>
                                  {{-- <button type="button" id="click-me"data-bs-toggle="modal"
@@ -76,7 +76,7 @@
 
                                          <h5 class="card-title" style="float: left">Allergy</h5>
                                          <button type="button" id="click-me"data-bs-toggle="modal"
-                                             data-bs-target="#addnew" class="btn btn-primary pull-right"
+                                             data-bs-target="#addnew" class="btn btn-info pull-right"
                                              style="float:right"><i class="fa fa-plus"></i> Allergy</button>
                                          @include('modalpopup.allergy_add')
                                          <br><br>
