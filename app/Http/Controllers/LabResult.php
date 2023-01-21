@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 use App\Models\Episode;
 use App\Models\Laboratory;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class LabResult extends Controller
 {
     public function labreport(Request $request)
    {
+      if (Auth::guest()) {
+         return redirect()->route('/');
+     }
       $id = $request->id;
       $epsid = $request->epsid;
       $date =  now()->format('d F Y');

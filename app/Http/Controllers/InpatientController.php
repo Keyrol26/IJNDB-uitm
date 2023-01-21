@@ -7,11 +7,14 @@ use App\Models\Episode;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 class InpatientController extends Controller
 {
   public function showinpatient(Request $request)
   {
+    if (Auth::guest()) {
+      return redirect()->route('/');
+  }
     $inpatientfilter = $request->query('inpatientfilter');
     $yesterday = date('Y-m-d', strtotime("-1 days"));
     $count = Episode::with('patient')

@@ -6,12 +6,15 @@ use App\Models\Mhd;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 class MhdController extends Controller
 {
 
   public function showmhd(Request $request)
   {
+    if (Auth::guest()) {
+      return redirect()->route('/');
+  }
     $count = Mhd::join('patients', 'mhds.patient_id', '=', 'patients.id')
       ->count();
     $req = $request->all();

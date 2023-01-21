@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Episode;
 use App\Models\Patient;
+use Illuminate\Support\Facades\Auth;
 
 class EpisodeController extends Controller
 {
     public function showEpisode($id, Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $episodes = Patient::findOrfail($id)->episode()
             ->orderBy('episodes.id', 'desc')
             ->limit(3)
@@ -44,6 +48,9 @@ class EpisodeController extends Controller
 
     public function elab($id)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $data = Episode::with('elab', 'patient')
             ->where('id', $id)
             ->first();
@@ -53,6 +60,9 @@ class EpisodeController extends Controller
 
     public function epsappointment($id)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $data = Episode::with('appt', 'patient')
             ->where('id', $id)
             ->first();
@@ -62,6 +72,9 @@ class EpisodeController extends Controller
 
     public function medication($id)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $data = Episode::with('medic', 'patient')
             ->where('id', $id)
             ->first();

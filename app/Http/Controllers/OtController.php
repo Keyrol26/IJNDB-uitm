@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ot;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 class OtController extends Controller
 {
   public function ot(Request $request)
   {
+    if (Auth::guest()) {
+      return redirect()->route('/');
+  }
     $filterinbill = $request->query('filterinbill');
     $update = DB::table('updates')
       ->first();

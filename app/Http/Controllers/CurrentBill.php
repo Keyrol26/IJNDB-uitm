@@ -6,12 +6,16 @@ use App\Models\billOutpatient;
 use App\Models\Hospital;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Facades\Datatables;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CurrentBill extends Controller
 {
     public function billinpatient(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $filterinbill = $request->query('filterinbill');
         $update = DB::table('updates_1')
             ->first();
@@ -30,6 +34,9 @@ class CurrentBill extends Controller
     }
     public function billoutpatient(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $filteroutbill = $request->query('filteroutbill');
         $update = DB::table('updates_1')
             ->first();

@@ -7,11 +7,14 @@ use App\Models\Laboratory;
 use App\Models\Medication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 class CurrentPatient extends Controller
 {
     public function currentpatient(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $update = DB::table('updates')
             ->first();
         $req = $request->all();
@@ -60,6 +63,9 @@ class CurrentPatient extends Controller
 
     public function medic($id)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $data = Episode::with('medic', 'patient')
             ->where('id', $id)
             ->first();
@@ -70,6 +76,9 @@ class CurrentPatient extends Controller
 
     public function lab($id)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $data = Episode::
             // ->join('laboratorys', 'laboratorys.episode_id', '=', 'episodes.id')
             where('id', $id)

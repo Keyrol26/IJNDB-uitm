@@ -26,6 +26,10 @@ use App\Http\Controllers\LabResult;
 |
 */
 
+Route::get('/', function () {
+    return redirect('/login');
+});
+
 //Patient
 Route::get('/home', [PatientController::class, 'index'])->name('home');
 Route::post('/store', 'PatientController@store');

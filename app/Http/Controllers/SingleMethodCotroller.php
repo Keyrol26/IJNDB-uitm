@@ -9,11 +9,15 @@ use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\Storage;
 use PHPExcel_IOFactory;
+use Illuminate\Support\Facades\Auth;
 
 class SingleMethodCotroller extends Controller
 {
     public function icl(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $filterinbill = $request->query('filterinbill');
         $update = DB::table('updates')
             ->first();

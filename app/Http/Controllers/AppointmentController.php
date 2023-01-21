@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use \Carbon\Carbon;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AppointmentController extends Controller
 {
     public function currentappt(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
+
         $update = DB::table('updates')
             ->first();
         $req = $request->all();
@@ -78,6 +83,7 @@ class AppointmentController extends Controller
     }
     public function appointmentstore(Request $request)
     {
+        
         //for ID
         $currentid = Appointment::select("id")->max('id');
         $id = $currentid + 1;

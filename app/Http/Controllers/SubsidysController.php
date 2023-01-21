@@ -6,13 +6,16 @@ use App\Models\Subsidy;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 class SubsidysController extends Controller
 {
 
 
     public function showsubsidy(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $subfilter = $request->query('subfilter');
         $update = DB::table('updates')
             ->first();
@@ -46,6 +49,9 @@ class SubsidysController extends Controller
 
     public function subinfo(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $req = $request->all();
         $id = $request->id;
         $update = DB::table('updates')

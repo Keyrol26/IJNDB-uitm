@@ -10,12 +10,14 @@ use Illuminate\Support\Input;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Episode;
-use PhpOffice\PhpSpreadsheet\Calculation\Category;
-
+use Illuminate\Support\Facades\Auth;
 class PatientController extends Controller
 {
     public function index(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $count = Patient::count();
         $req = $request->all();
         $filterpatient = $request->query('filterpatient');
@@ -53,6 +55,9 @@ class PatientController extends Controller
     }
     public function profile($id)
     {
+        if (Auth::guest()) {
+            return redirect()->route('/');
+        }
         $profile = Patient::with('allergy')
             ->where('id', $id)
             ->first();
