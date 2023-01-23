@@ -1,5 +1,5 @@
 
-
+<link href="{{ asset('multiple/css/action-modal.css') }}" rel="stylesheet">
 <!-- Delete Modal -->
 <div class="modal fade" id="delete{{ $item->id }}" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

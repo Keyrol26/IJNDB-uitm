@@ -1,4 +1,5 @@
 <!-- Add Episode -->
+<link href="{{ asset('multiple/css/action-modal.css') }}" rel="stylesheet">
 <div class="modal fade" id="addepisode" tabindex="-1" aria-labelledby="addnewModalLabel" aria-hidden="true"
     data-bs-backdrop="static">
     <div class="modal-dialog modal-lg">

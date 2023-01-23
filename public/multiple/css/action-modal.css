@@ -1,0 +1,12 @@
+.modal-header {
+    font-family: 'Quicksand', sans-serif;
+    /* background: #9C27B0; */
+    background: #00578f;
+    color: #fff !important;
+}
+
+.modal-footer {
+    font-family: 'Quicksand', sans-serif;
+    background: #00578f;
+    color: #fff !important;
+}

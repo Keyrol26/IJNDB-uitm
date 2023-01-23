@@ -13,7 +13,7 @@ class AppointmentController extends Controller
     public function currentappt(Request $request)
     {
         if (Auth::guest()) {
-            return redirect()->route('/');
+            return redirect()->route("/");
         }
 
         $update = DB::table('updates')

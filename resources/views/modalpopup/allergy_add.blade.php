@@ -1,3 +1,4 @@
+<link href="{{ asset('multiple/css/action-modal.css') }}" rel="stylesheet">
 <!-- Add Modal -->
 <div class="modal fade" id="addnew" tabindex="-1" aria-labelledby="addnewModalLabel" aria-hidden="true"
     data-bs-backdrop="static">

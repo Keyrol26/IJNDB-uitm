@@ -27,8 +27,8 @@ use App\Http\Controllers\LabResult;
 */
 
 Route::get('/', function () {
-    return redirect('/login');
-});
+    return redirect('login');
+})->name('/');
 
 //Patient
 Route::get('/home', [PatientController::class, 'index'])->name('home');

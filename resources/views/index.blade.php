@@ -30,7 +30,7 @@
                                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             @endif
-                            <p>Last Data Extracted on {{ $update->updatetime }}</p>
+                            {{-- <p>Last Data Extracted on {{ $update->updatetime }}</p> --}}
                             <div class='dataTable-search' class="pull-left">
                                 <form class="search-form d-flex" method="get">
                                     <input class="form-control float-end max-2" style="width :340px"type="text"
@@ -45,7 +45,7 @@
                                 <br>
                                 <div class="col-md-12 col-md-offset-1">
                                     <h2>
-                                        <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addnew" class="btn btn-info pull-right"><i class="fa fa-plus"></i>Add Patient</button>
+                                        <button type="button" id="click-me"data-bs-toggle="modal" data-bs-target="#addnew" class="btn btn-info pull-right" style="float:right;margin:5px;"><i class="fa fa-plus"></i>Add Patient</button>
                                     </h2>
                                 </div>
                             </div><!-- End Search Bar -->
