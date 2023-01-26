@@ -42,10 +42,6 @@ Route::put('/update/{id}', [PatientController::class, 'update']);
 Route::post('/allergystore', 'PatientController@allergystore');
 Route::delete('/delete/{patientid}/{id}', ['as' => 'allergy.delete', 'uses' => 'PatientController@allergydelete']);
 Route::post('/update/{patientid}/{id}', ['as' => 'allergy.update', 'uses' => 'PatientController@allergyupdate']);
-//download
-// Route::get('/exportPatientExcel', [PatientController::class, 'exportPatientExcel']);
-// Route::get('/exportPatientCsv', [PatientController::class, 'exportPatientCsv']);
-// Route::get('/patient/pdf', [PatientController::class, 'exportPatientPDF']);
 
 //Episode
 Route::post('/episodestore', 'PatientController@episodestore');

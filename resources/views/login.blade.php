@@ -27,7 +27,7 @@
                                  <img src="{{ asset('multiple/img/ijn-logo.png') }}" alt="logo" class="logo">
                              </div>
                              <p>{{ $date }}</p>
-                             <p>Last Data Extracted on {{ $update->updatetime }}</p>
+                             {{-- <p>Last Data Extracted on {{ $update->updatetime }}</p> --}}
                              <p class="login-card-description">Downtime Database</p>
                              <form action="{{ route('sample.validate_login') }}" method="post">
                                  @csrf

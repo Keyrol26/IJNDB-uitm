@@ -84,7 +84,7 @@
         </section>
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="false">
-            <div class="modal-dialog modal-dialog-scrollable modal-xl">
+            <div class="modal-dialog modal-dialog-scrollable modal-xl ">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Subsidy View</h5>

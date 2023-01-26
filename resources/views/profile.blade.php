@@ -15,7 +15,7 @@
          </div><!-- End Page Title -->
          <section class="section profile">
              <div class="row">
-                 <div class="col-lg-10 ">
+                 <div style="width: 100%">
                      <div class="card">
 
                          <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">

@@ -19,7 +19,7 @@
                     <div class="card recent-sales overflow-auto">
                         <div class="card-body">
                             <h5 class="card-title">Current Appointment List</h5>
-                            <p>Last Data Extracted on {{ $update->updatetime }}</p>
+                            {{-- <p>Last Data Extracted on {{ $update->updatetime }}</p> --}}
                             <!-- seach filter -->
                             {{-- <div class="row">
                                 <div class="form-group"> --}}

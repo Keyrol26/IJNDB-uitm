@@ -23,7 +23,7 @@
                     <div class="card recent-sales overflow-auto">
                         <div class="card-body">
                             <h5 class="card-title">OT Listing</h5>
-                            <p>Last Data Extracted on {{ $update->updatetime }}</p>
+                            {{-- <p>Last Data Extracted on {{ $update->updatetime }}</p> --}}
                             <div class="search-bar">
                                 <form class="search-form d-flex" method="get">
                                     <input class="form-control float-end max-2" style="width :340px"type="text"

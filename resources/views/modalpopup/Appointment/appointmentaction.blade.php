@@ -2,7 +2,7 @@
 <link href="{{ asset('multiple/css/action-modal.css') }}" rel="stylesheet">
 <div class="modal fade" id="delete{{ $item->id }}{{ $item->patient_id }}" tabindex="-1" aria-labelledby="myModalLabel"
     aria-hidden="true" data-bs-backdrop="static">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="myModalLabel">Delete item</h5>
@@ -32,10 +32,10 @@
 <!-- Edit Modal -->
 <div class="modal fade" id="edit{{ $item->id }}{{ $item->patient_id }}" tabindex="-1"
     aria-labelledby="myModalLabel" aria-hidden="true" data-bs-backdrop="static">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Edit Episode :{{ $item->episode_no }} </h5>
+                <h5 class="modal-title" id="myModalLabel">Edit Appointment :{{ $item->appointment_status }} || {{ $item->appointment_date }} || {{ $item->appointment_time }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

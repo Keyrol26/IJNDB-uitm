@@ -17,7 +17,8 @@ class LoginController extends Controller
         $update = DB::table('updates')
             ->first();
         $date =  now()->format('l, F d Y, H:i:s');
-        // dd($date);
+        // $ldate = date('Y-m-d H:i:s');
+        // dd($ldate);
         return view('login',compact('update', 'date'));
     }
 
