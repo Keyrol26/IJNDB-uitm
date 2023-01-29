@@ -92,7 +92,14 @@ class EpisodeController extends Controller
         // dd($data);
         $data->delete();
         // return redirect('home');
+        $check = Episode::where('patient_id', $patientid)
+            ->where('id', $id)
+            ->count();
+        
+        if($check >0)
         return redirect("/episode/$patientid")->with('episodedelete', 'Patient Episode Have been Deleted Succesfully');
+        else 
+        return redirect("profile/$patientid")->with('episodedelete', 'Patient Episode Have been Deleted Succesfully');
     }
 
 

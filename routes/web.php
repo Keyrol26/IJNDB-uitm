@@ -54,7 +54,7 @@ Route::post('/appointmentstore', 'AppointmentController@appointmentstore');
 Route::get('/epsappointment/{id}', [EpisodeController::class, 'epsappointment'])->name('epsappointment');
 Route::post('/Appointmentupdate/{patientid}/{id}', ['as' => 'appt.update', 'uses' => 'AppointmentController@apptupdate']);
 Route::delete('/AppointmentDelete/{patientid}/{id}/{episodeid}', ['as' => 'appt.delete', 'uses' => 'AppointmentController@apptdelete']);
-//elab
+//elabN
 Route::get('/elab/{id}', [EpisodeController::class, 'elab'])->name('elab');
 
 //medication
