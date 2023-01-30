@@ -22,13 +22,13 @@
                         <div class="card-body">
                             <h5 class="card-title">Episode List </h5>
                             @if ($message = Session::get('episodeadd'))
-                                <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show" role="alert">
+                                <div class="alert alert-success  bg-success  text-light border-0 alert-dismissible fade show" role="alert">
                                 {{ $message }}
                                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             @endif
                             @if ($message = Session::get('episodedelete'))
-                                <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show" role="alert">
+                                <div class="alert alert-warning bg-warning text-light border-0 alert-dismissible fade show" role="alert">
                                 {{ $message }}
                                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>

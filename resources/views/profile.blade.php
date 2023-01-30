@@ -50,7 +50,7 @@
                                  <div class="card" style="border-color: #6776F4; border-style: dashed;">
                                      <div class="card-body">
                                          @if ($message = Session::get('allergystore'))
-                                             <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                             <div class="alert alert-success  bg-success  text-light border-0 alert-dismissible fade show"
                                                  role="alert">
                                                  {{ $message }}
                                                  <button type="button" class="btn-close btn-close-white"
@@ -66,7 +66,7 @@
                                              </div>
                                          @endif
                                          @if ($message = Session::get('allergydelete'))
-                                             <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                             <div class="alert alert-warning bg-warning text-light border-0 alert-dismissible fade show"
                                                  role="alert">
                                                  {{ $message }}
                                                  <button type="button" class="btn-close btn-close-white"
@@ -129,7 +129,7 @@
                                          </ul>
                                          <div class="tab-content pt-2">
                                              @if ($message = Session::get('success'))
-                                                 <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show"
+                                                 <div class="alert alert-success bg-success text-light border-0 alert-dismissible fade show"
                                                      role="alert">
                                                      {{ $message }}
                                                      <button type="button" class="btn-close btn-close-white"
