@@ -1,31 +1,5 @@
-CRUD
-
-Patient Listing
--Add Patient 
--Delete Patient
-
-Patient Profile
--Update Patient
--Add Patient Allergy
--Delete Patient Allergy
--Update Patient Allergy
--Add Patient Episode
-
-
-Episode Page
--Add
--Delete
--Update
-
-Allergy
--Add
--Delete
--Update
-
-Patient
--Add
--Delete 
--Update
-
-Appointment
--Add
+CREATE DEFINER=`root`@`localhost` EVENT `newpasswordpin` ON SCHEDULE EVERY 1 DAY STARTS '2022-12-24 00:00:00' ON COMPLETION PRESERVE ENABLE DO UPDATE
+    users
+SET
+    `password` = md5(Round(UNIX_TIMESTAMP(DATE(CURRENT_DATE)) / 86400) + 25569), updated_at = now()
+   where id = '2'

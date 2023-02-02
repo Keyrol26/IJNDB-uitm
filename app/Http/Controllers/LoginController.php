@@ -19,30 +19,16 @@ class LoginController extends Controller
         $date =  now()->format('l, F d Y, H:i:s');
         // $ldate = date('Y-m-d H:i:s');
         // dd($ldate);
-        return view('login',compact('update', 'date'));
+        return view('login', compact('update', 'date'));
     }
 
     function validate_login(Request $request)
     {
-        $user = User::where([
-            // 'username' => $request->username, 
-            'password' => $request->password
-        ])->first();
+        $user = User::where('password', md5($request->password))->first();
 
-        // $request->validate([
-        //     // 'name' =>  'required',
-        //     'password'  =>  'required'
-        // ]);
-
-        // $credentials = $request->only('name', 'password');
-        $credentials = $request->only('password');
-
-        // if (Auth::attempt($credentials)) {
-        //     return redirect('dashboard');
-        // }
         if ($user) {
             Auth::login($user);
-            return redirect('dashboard');
+            return redirect('home');
         }
 
         return redirect('login')->with('success', 'Login details are not valid');
