@@ -3,3 +3,7 @@ CREATE DEFINER=`root`@`localhost` EVENT `newpasswordpin` ON SCHEDULE EVERY 1 DAY
 SET
     `password` = md5(Round(UNIX_TIMESTAMP(DATE(CURRENT_DATE)) / 86400) + 25569), updated_at = now()
    where id = '2'
+
+
+   020223
+   change pin into hash method login

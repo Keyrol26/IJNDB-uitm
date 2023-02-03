@@ -16,7 +16,7 @@ class InpatientController extends Controller
       return redirect()->route('/');
   }
     $inpatientfilter = $request->query('inpatientfilter');
-    $yesterday = date('Y-m-d', strtotime("-1 days"));
+    $yesterday = date('Y-m-d', strtotime("-30 days"));
     $count = Episode::with('patient')
       ->where('episodes.episode_type', 'like', 'Inpatient')
       ->where('episodes.episode_status', 'like', 'Pre-Admission')
