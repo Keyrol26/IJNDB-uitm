@@ -57,8 +57,9 @@
                                 <tbody>
                                     @foreach ($data as $item)
                                         <tr>
-                                            <td><a type=button class="text-gray-800 text-hover-primary mb-1 viewdetails"
-                                                    data-id='{{ $item->id }}'>{{ $item->episode_no }}</a></td>
+                                            {{-- <td><a type=button class="text-gray-800 text-hover-primary mb-1 viewdetails"
+                                                    data-id='{{ $item->id }}'>{{ $item->episode_no }}</a></td> --}}
+                                            <td>{{ $item->episode_no }}</td>
                                             <td><a class="text-gray-800 text-hover-primary mb-1"
                                                     href="/profile/{{ $item->patient_id }}">{{ $item->patient->mrn }}</td>
                                             <td>{{ $item->patient->name }}</td>
@@ -107,29 +108,29 @@
             $(document).ready(function() {
                 $('#inpatient').DataTable({
                     "bPaginate": false, //hide pagination
-                "bFilter": false, //hide Search bar
-                "bInfo": false, // hide showing entries
-                'responsive': true,
-                "ordering": false,
-                "paging": false,
-                "bProcessing": true,
-                "sAutoWidth": false,
-                "bDestroy": true,
-                "iDisplayStart ": 10,
-                "iDisplayLength": 10,
-                "sPaginationType": "bootstrap", // full_numbers
+                    "bFilter": false, //hide Search bar
+                    "bInfo": false, // hide showing entries
+                    'responsive': true,
+                    "ordering": false,
+                    "paging": false,
+                    "bProcessing": true,
+                    "sAutoWidth": false,
+                    "bDestroy": true,
+                    "iDisplayStart ": 10,
+                    "iDisplayLength": 10,
+                    "sPaginationType": "bootstrap", // full_numbers
                     dom: 'Bfrtip',
                     buttons: [
                         'copy', 'csv', 'excel', 'pdf', 'print'
                     ]
-                    
+
                 });
             });
         </script>
 
 
     </main>
-    
+
     <script type='text/javascript'>
         $(document).ready(function() {
 
