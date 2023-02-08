@@ -56,7 +56,7 @@
                                             <td>{{ $item->patient->maritalstat }}</td>
                                             <td>{{ $item->patient->sex }}</td>
                                             <td>@if (!empty($item->patient->dob))
-                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->patient->dob)->format('Y/m/d') }}}
+                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->patient->dob)->format('d/m/Y') }}}
                                                 @endif
                                             </td>
                                             <td>{{ $item->patient->homeno }}</td>

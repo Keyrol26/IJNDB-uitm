@@ -45,13 +45,13 @@
                                         <td>{{ $data->episode_status }}</td>
                                         <td>
                                             @if (!empty($data->episode_date))
-                                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $data->episode_date)->format('Y/m/d') }}
+                                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $data->episode_date)->format('d/m/Y') }}
                                             @endif
                                         </td>
                                         <td>{{ $data->episode_time }}</td>
                                         <td>
                                             @if (!empty($data->dischargedate))
-                                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $data->dischargedate)->format('Y/m/d') }}
+                                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $data->dischargedate)->format('d/m/Y') }}
                                             @endif
                                         </td>
                                         <td>{{ $data->dischargetime }}</td>

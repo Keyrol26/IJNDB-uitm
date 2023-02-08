@@ -66,7 +66,7 @@
                                             <td>{{ $item->payor_type }}</td>
                                             <td>{{ $item->bill_number }}</td>
                                             <td>@if(!empty($item->bill_date))
-                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->bill_date)->format('Y/m/d') }}}
+                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->bill_date)->format('d/m/Y') }}}
                                             @endif</td></td>
                                             <td>{{ $item->bill_amount }}</td>
                                             <td>{{ $item->deposit_amount }}</td>

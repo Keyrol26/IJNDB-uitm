@@ -78,7 +78,7 @@
                                             <td>{{ $item->episode_no }}</td>
                                             <td>{{ $item->episode_status }}</td>
                                             <td>
-                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->episode_date)->format('Y/m/d') }}}</td>
+                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->episode_date)->format('d/m/Y') }}}</td>
                                             <td>{{ $item->episode_time }}</td>
                                             <td>{{ $item->estdischargedate }}</td>
                                             <td>{{ $item->estdischargetime }}</td>

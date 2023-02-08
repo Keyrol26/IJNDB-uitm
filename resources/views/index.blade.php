@@ -79,7 +79,7 @@
                                             <td>
                                             {{-- {{ $item->dob }} --}}
                                                 @if (!empty($item->dob))
-                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->dob)->format('Y/m/d') }}}
+                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->dob)->format('d/m/Y') }}}
                                                 @endif
                                             </td>
                                             <td>@if (!empty($item->dob))

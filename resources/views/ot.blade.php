@@ -70,13 +70,13 @@
                                             <td>{{ $item->episode->episode_no }}</td>
                                             <td>
                                                 @if(!empty($item->episode->episode_date))
-                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->episode->episode_date)->format('Y/m/d') }}}
+                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->episode->episode_date)->format('d/m/Y') }}}
                                             @endif
                                             </td>
                                             <td>{{ $item->episode->episode_type }}</td>
                                             <td>
                                                 @if(!empty($item->op_date))
-                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->op_date)->format('Y/m/d') }}}
+                                                {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->op_date)->format('d/m/Y') }}}
                                             @endif
                                             </td>
                                             <td>{{ $item->status }}</td>
@@ -125,11 +125,6 @@
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
-                // {
-                //     extend: 'csv',
-                //     text: 'Excel',
-                //     title: 'OT List'
-                // },
             ],
                 
             });

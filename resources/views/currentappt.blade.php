@@ -85,9 +85,9 @@
                                                     href="/profile/{{ $item->patient->id }}">{{ $item->patient->mrn }}</td>
                                             <td>{{ $item->patient->name }}</td>
                                             <td>{{ $item->episode->episode_no }}</td>
-                                            <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->episode->episode_date)->format('Y/m/d') }}
+                                            <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->episode->episode_date)->format('d/m/Y') }}
                                             </td>
-                                            <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->appointment_date)->format('Y/m/d') }}
+                                            <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->appointment_date)->format('d/m/Y') }}
                                             </td>
                                             <td>{{ $item->appointment_time }}</td>
                                             <td>{{ $item->appointment_status }}</td>

@@ -83,7 +83,7 @@
                                     <td>{{ \Carbon\Carbon::parse(\Date::createFromFormat('Y-m-d', $item->patient->dob)->format('Y/m/d'))->diff(\Carbon\Carbon::now())->format('%y years') }}
                                     </td>
                                     <td>@if(!empty($item->procedure_date))
-                                        {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->procedure_date)->format('Y/m/d') }}}
+                                        {{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->procedure_date)->format('d/m/Y') }}}
                                         @endif
                                     </td>
                                     <td>{{ $item->status }}</td>

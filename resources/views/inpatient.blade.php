@@ -63,7 +63,7 @@
                                             <td><a class="text-gray-800 text-hover-primary mb-1"
                                                     href="/profile/{{ $item->patient_id }}">{{ $item->patient->mrn }}</td>
                                             <td>{{ $item->patient->name }}</td>
-                                            <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->episode_date)->format('Y/m/d') }}
+                                            <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->episode_date)->format('d/m/Y') }}
                                             </td>
                                             <td>{{ $item->episode_type }}</td>
                                             <td>{{ $item->department }}</td>
