@@ -4,7 +4,7 @@
     @include('layouts.multiple.mhdscript')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="{{ asset('multiple/css/child-table.css') }}" rel="stylesheet">
-    <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/r-2.2.1/datatables.min.js"></script>
+    {{-- <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/r-2.2.1/datatables.min.js"></script> --}}
     <main id="main" class="main">
 
         <div class="pagetitle">
@@ -104,6 +104,7 @@
                 </div><!-- End Recent Sales -->
             </div>
         </section>
+        @include('layouts.multiple.child_printscript')
     </main>
     <script>
         $(document).ready(function() {
@@ -121,6 +122,15 @@
                 "bFilter": false, //hide Search bar
                 "bInfo": false, // hide showing entries
                 // 'sort' : false
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                // {
+                //     extend: 'csv',
+                //     text: 'Excel',
+                //     title: 'OT List'
+                // },
+            ],
                 
             });
         });

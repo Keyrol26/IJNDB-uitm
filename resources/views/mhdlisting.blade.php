@@ -119,6 +119,7 @@
                 </div>
             </div>
         </div>
+        @include('layouts.multiple.child_printscript')
 
     </main>
     <script>
@@ -137,6 +138,10 @@
                 "bFilter": false, //hide Search bar.
                 "bInfo": false, // hide showing entries
                 // 'sort' : false
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
             });
         });
     </script>

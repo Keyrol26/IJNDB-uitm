@@ -99,7 +99,7 @@
                 </div><!-- End Recent Sales -->
             </div>
         </section>
-        
+        @include('layouts.multiple.child_printscript')
     </main>
     <script>
         $(document).ready(function() {
@@ -117,6 +117,11 @@
                 "bFilter": false, //hide Search bar
                 "bInfo": false, // hide showing entries
                 // 'sort' : false
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+                
             });
         });
     </script>

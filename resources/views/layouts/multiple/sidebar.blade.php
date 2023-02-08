@@ -51,11 +51,11 @@
           </li><!-- End appointment Page Nav -->
 
 
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
               <i class="bi bi-circle" style="font-size: 10px;"></i><span>Bill</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="icons-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+            <ul id="icons-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav"> --}}
               <li>
                 <a class="nav-link {{ request()->is('billoutpatient') ? '' : 'collapsed' }}"
                     href="{{ route('billoutpatient') }}">
@@ -70,8 +70,8 @@
                     <span>Current Bill Inpatient</span>
                 </a>
               </li>
-            </ul>
-          </li><!-- End Icons Nav -->
+            {{-- </ul>
+          </li><!-- End Icons Nav --> --}}
 
           <li class="nav-item">
               <a class="nav-link {{ request()->is('icl') ? '' : 'collapsed' }}" href="{{ route('icl') }}">
