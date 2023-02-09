@@ -25,7 +25,7 @@ use App\Http\Controllers\LabResult;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middleware' => 'RevalidateBackHistory'],function(){
 Route::get('/', function () {
     return redirect('login');
 })->name('/');
@@ -109,3 +109,6 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('validate_login', [LoginController::class, 'validate_login'])->name('sample.validate_login');
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+
+
+});

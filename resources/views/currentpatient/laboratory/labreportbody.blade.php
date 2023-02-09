@@ -23,9 +23,9 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th style="width:450px">Test Item</th>
-                <th style="width:235px">Reference Range</th>
-                <th style="width:200px">Unit</th>
+                <th style="min-width:450px">Test Item</th>
+                <th style="min-width:235px">Reference Range</th>
+                <th style="min-width:200px">Unit</th>
                 <th>Value</th>
             </tr>
         </thead>
@@ -39,10 +39,10 @@
                     </tr>
                 </thead>
                 <tbody> @foreach ($labresult AS $item) @if ($item->test_set == $data->test_set) <tr>
-                        <td style="width:270px">&nbsp&nbsp&nbsp&nbsp{{ $item->test_item }}</td>
-                        <td style="width:100px">{{ $item->ref_range }}</td>
-                        <td style="width:100px">{{ $item->unit }}</td>
-                        <td style="width:100px">{{ $item->value }}</td>
+                        <td style="min-width:270px">&nbsp&nbsp&nbsp&nbsp{{ $item->test_item }}</td>
+                        <td style="min-width:100px">{{ $item->ref_range }}</td>
+                        <td style="min-width:100px">{{ $item->unit }}</td>
+                        <td style="min-width:100px">{{ $item->value }}</td>
                     </tr> @endif @endforeach </tbody> @endforeach
             </table>
         </tbody>
