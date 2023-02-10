@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \Yajra\Datatables\Datatables;
 use App\Models\Patient;
 use App\Models\Hospital;
 use App\Models\Allergy;
@@ -35,22 +35,29 @@ class PatientController extends Controller
             $data = Patient::leftJoin("episodes", 'patient_id', '=', 'patients.id')
                 ->select('patients.*', 'episodes.patient_id')
                 ->groupby('patients.id')
-                ->sortable()
+                // ->sortable()
                 // ->Orwhere('name',Input::get('filterpatient'))
                 ->Orwhere('mrn', 'like', '%' . $filterpatient . '%')
                 ->orwhere('name', 'like', '%' . $filterpatient . '%')
                 ->orwhere('newic', 'like', '%' . $filterpatient . '%')
+                ->orderBy('patients.id','asc')
+                // ->latest();
                 ->paginate(10);
         } else {
             // $data = Patient::sortable()
             $data = Patient::leftJoin("episodes", 'patient_id', '=', 'patients.id')
                 ->select('patients.*', 'episodes.patient_id')
                 ->groupby('patients.id')
-                ->sortable()
+                ->orderBy('patients.id','asc')
+                // ->first();
+                // ->sortable()
+                // ->latest();
                 ->paginate(10);
+                // ->get();
         }
-
-        // dd($checkepisode);
+    
+        // return Datatables::eloquent($data);
+        // dd($data);
         return view('index', compact('data', 'req', 'update', 'count', 'hospital'));
     }
     public function profile($id)
