@@ -32,6 +32,7 @@ Route::get('/', function () {
 
 //Patient
 Route::get('/home', [PatientController::class, 'index'])->name('home');
+Route::get('home/list', [PatientController::class, 'getpatient'])->name('patient.list');
 Route::post('/store', 'PatientController@store');
 //profile
 Route::get('/profile/{id}', [PatientController::class, 'profile'])->name('profile');
@@ -45,7 +46,7 @@ Route::post('/update/{patientid}/{id}', ['as' => 'allergy.update', 'uses' => 'Pa
 
 //Episode
 Route::post('/episodestore', 'PatientController@episodestore');
-Route::get('/episode/{id}', [EpisodeController::class, 'showEpisode']);
+Route::get('/episode/{id}', [EpisodeController::class, 'showEpisode'])->name('episode.list');
 Route::post('/Episodeupdate/{patientid}/{id}', ['as' => 'episode.update', 'uses' => 'EpisodeController@episodeupdate']);
 Route::delete('/EpisodeDelete/{patientid}/{id}', ['as' => 'episode.delete', 'uses' => 'EpisodeController@destroyepisode']);
 

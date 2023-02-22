@@ -31,14 +31,6 @@
                              <p class="login-card-description">Downtime Database</p>
                              <form action="{{ route('sample.validate_login') }}" method="post">
                                  @csrf
-                                 {{-- <div class="form-group">
-                                     <label for="yourUsername" class="sr-only">Username</label>
-                                     <input type="text" name="name" id="name" class="form-control"
-                                         placeholder="musharaf">
-                                     @if ($errors->has('name'))
-                                         <span class="text-danger">{{ $errors->first('name') }}</span>
-                                     @endif
-                                 </div> --}}
                                  <div class="form-group mb-4">
                                      <label for="password" class="sr-only">Password</label>
                                      <input type="password" name="password" id="password" class="form-control"

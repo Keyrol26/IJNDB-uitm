@@ -29,18 +29,26 @@
                                 </div>
                             @endif
                             <p>Last Data Extracted on {{ $update->updatetime }}</p>
-                            <div class="search-bar">
-                                <form class="search-form d-flex" method="get">
-                                    <input class="form-control float-end max-2" style="width :340px"type="text"
-                                        id="filtermhd" name="filterpatient" placeholder="Search ...."
-                                        title="Enter search keyword">
-                                    &nbsp;
-                                    <button type="submit" class="btn btn-info"><i class="bi bi-search"></i></button>
-                                    &nbsp;
-                                    <button type="reset" class="btn btn-danger"><a href="/mhd"
-                                            style="color: white">Clear Filter</a></button>
-                                </form>
-                            </div><!-- End Search Bar -->
+                            <div class="card-body">
+                                <div id="test" style="float:right">
+
+                                </div>
+                                <div class="search-bar">
+                                    <form class="search-form d-flex" method="get">
+                                        <input class="form-control float-end max-2" style="width :340px"type="text"
+                                            id="filtermhd" name="filterpatient" placeholder="Search ...."
+                                            title="Enter search keyword">
+                                        &nbsp;
+                                        <button type="submit" class="btn btn-info"><i class="bi bi-search"></i></button>
+                                        &nbsp;
+                                        <button type="reset" class="btn btn-danger"><a href="/mhd"
+                                                style="color: white">Clear Filter</a></button>
+                                    </form>
+                                </div><!-- End Search Bar -->
+                                
+                            </div>
+
+
 
                             <br>
                             {{-- <p>Total MHD : {{ $count }}</p> --}}
@@ -141,8 +149,9 @@
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
-            ],
+                ],
             });
+            table.buttons().container().appendTo($('#test'));
         });
     </script>
     <script type='text/javascript'>

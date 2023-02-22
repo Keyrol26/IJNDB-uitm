@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use \Yajra\Datatables\Datatables;
 use App\Models\Patient;
 use App\Models\Hospital;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Episode;
 use Illuminate\Support\Facades\Auth;
+
 class PatientController extends Controller
 {
     public function index(Request $request)
@@ -40,7 +42,7 @@ class PatientController extends Controller
                 ->Orwhere('mrn', 'like', '%' . $filterpatient . '%')
                 ->orwhere('name', 'like', '%' . $filterpatient . '%')
                 ->orwhere('newic', 'like', '%' . $filterpatient . '%')
-                ->orderBy('patients.id','asc')
+                ->orderBy('patients.id', 'asc')
                 // ->latest();
                 ->paginate(10);
         } else {
@@ -48,17 +50,35 @@ class PatientController extends Controller
             $data = Patient::leftJoin("episodes", 'patient_id', '=', 'patients.id')
                 ->select('patients.*', 'episodes.patient_id')
                 ->groupby('patients.id')
-                ->orderBy('patients.id','asc')
+                ->orderBy('patients.id', 'asc')
                 // ->first();
                 // ->sortable()
                 // ->latest();
                 ->paginate(10);
-                // ->get();
+            // ->get();
         }
-    
+
         // return Datatables::eloquent($data);
         // dd($data);
         return view('index', compact('data', 'req', 'update', 'count', 'hospital'));
+    }
+
+    public function getpatient(Request $request)
+    {
+        if ($request->ajax()) {
+            // $data = Student::latest()->get();
+            // $data = DB::table('patients')->orderBy('id','asc');
+            $data = $data = Patient::leftJoin("episodes", 'patient_id', '=', 'patients.id')
+                ->select('patients.*', 'episodes.patient_id')
+                ->groupby('patients.id')
+                ->orderBy('patients.id', 'asc');
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', 'layouts.action')
+                ->addColumn('agefunction', 'layouts.agefunction')
+                ->rawColumns(['action'])
+                ->make(true);
+        }
     }
     public function profile($id)
     {
@@ -81,7 +101,7 @@ class PatientController extends Controller
         // $data = Allergy::findOrFail($id);
         //   dd($data);
         // $date= now()->format('Y-m-d');
-        
+
 
         return view('profile', compact('profile', 'hospital', 'count'));
     }
@@ -159,8 +179,8 @@ class PatientController extends Controller
         return redirect('/home')->with('patientadd', 'Patient Have been Add Succesfully');
     }
     public function episodestore(Request $request)
-    {-
-        $currentid = Episode::select("id")->max('id');
+    {
+        -$currentid = Episode::select("id")->max('id');
         // $mrn = str_pad($currentmrn + 1, 6, '0', STR_PAD_LEFT);
         $id = $currentid + 1;
         // dd($id);
@@ -168,7 +188,7 @@ class PatientController extends Controller
         $patientid = $request->patient_id;
         if ($request->episodetype == 'Emergency') {
             $episode_no = 'EP' . $id;
-        } else if ($request->episodetype =='Outpatient') {
+        } else if ($request->episodetype == 'Outpatient') {
             $episode_no = 'OP' . $id;
         } else
             $episode_no = 'IP' . $id;
